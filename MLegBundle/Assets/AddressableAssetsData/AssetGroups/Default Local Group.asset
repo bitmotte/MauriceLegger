@@ -37,6 +37,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f26d1a3cb0d2616999ee688545a39978
+    m_Address: Assets/T_CerberusEnraged.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a57507688e0bcd3fa919a470ea67151f
+    m_Address: Assets/legs_cracked.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ab8bd7b16aaee21ca8cdc449e197778
+    m_Address: Assets/model-cracked.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb3aca2a9954827559e76f60567a49dc
+    m_Address: Assets/T_Cerberus_Damaged.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82c42ea0064c3ff1d91164aaf342182c
+    m_Address: Assets/T_CerberusEnragedDamaged.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 52bbee76f3defc0c48d1abffe773c8ed, type: 2}
   m_SchemaSet:

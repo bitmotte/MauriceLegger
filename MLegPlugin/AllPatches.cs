@@ -21,7 +21,7 @@ public class MauriceDeathPatch : MonoBehaviour
         SkinnedMeshRenderer renderer = legs.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
         Material newMat = new(mauriceShader)
         {
-            mainTexture = LoadBundle.tex
+            mainTexture = LoadBundle.texHealthy
         };
         newMat.EnableKeyword("ENEMY");
         newMat.EnableKeyword("VERTEX_LIGHTING");
@@ -32,6 +32,25 @@ public class MauriceDeathPatch : MonoBehaviour
         newMat.EnableKeyword("_ZWRITE_ON");
         renderer.material = newMat;
 
+        EnemySimplifier simplifier = legs.transform.GetChild(0).gameObject.AddComponent<EnemySimplifier>();
+        simplifier.originalMaterial = newMat;
+        simplifier.simplifiedMaterial = newMat;
+
+        Material newEnragedMat = new(mauriceShader)
+        {
+            mainTexture = LoadBundle.texEnraged
+        };
+        newEnragedMat.EnableKeyword("ENEMY");
+        newEnragedMat.EnableKeyword("VERTEX_LIGHTING");
+        newEnragedMat.EnableKeyword("_FOG_ON");
+        newEnragedMat.EnableKeyword("_USEALBEDOASEMISSIVE_ON");
+        newEnragedMat.EnableKeyword("_VERTEXCOLORS_ON");
+        newEnragedMat.EnableKeyword("_VERTEXLIGHTING_ON");
+        newEnragedMat.EnableKeyword("_ZWRITE_ON");
+
+        simplifier.enragedMaterial = newEnragedMat;
+        simplifier.enragedSimplifiedMaterial = newEnragedMat;
+
         FollowSpeed legFollow = legs.AddComponent<FollowSpeed>();
         legFollow.follow = __instance.gameObject;
 
@@ -41,7 +60,15 @@ public class MauriceDeathPatch : MonoBehaviour
 
         OutdoorsChecker outdoorsChecker = __instance.GetComponentInChildren<OutdoorsChecker>();
         outdoorsChecker.targets = newTargets;
+    }
 
-        EnemySimplifier simplifier = legs.transform.GetChild(0).gameObject.AddComponent<EnemySimplifier>();
-    }   
+    [HarmonyPatch(typeof(SpiderBody), "Enrage")]
+    public class MauriceEnragePatch : MonoBehaviour
+    {
+        static void Postfix(SpiderBody __instance)
+        {
+            EnemySimplifier simplifier = __instance.transform.GetChild(3).GetChild(0).GetComponent<EnemySimplifier>();;
+            simplifier.ChangeMaterialNew(EnemySimplifier.MaterialState.enraged, simplifier.enragedMaterial);
+        }
+    }
 }
