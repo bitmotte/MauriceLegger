@@ -22,6 +22,7 @@
     <PackageReference Include="UnityEngine.Modules" Version="2022.3.29" IncludeAssets="compile" />
 
     <PackageReference Include="Ultrakill.GameLibs-Stripped" Version="0.0.16-d" />
+    <PackageReference Include="bitmotte.EternalsTeam.PluginConfigurator" Version="1.10.2" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">

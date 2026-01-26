@@ -1,15 +1,17 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
-using UnityEngine;
+using PluginConfig.API;
 using UnityEngine.SceneManagement;
 
 namespace MauriceLegger;
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
+[BepInDependency("com.eternalUnion.pluginConfigurator")]
 public class Plugin : BaseUnityPlugin
 {
     internal static new ManualLogSource Logger;
+    public static PluginConfigurator config;
     
     private void Awake()
     {
@@ -20,6 +22,7 @@ public class Plugin : BaseUnityPlugin
         var harmony = new Harmony(MyPluginInfo.PLUGIN_GUID);
         harmony.PatchAll();
 
+        config = MauriceConfigurator.CreateConfigurator();
         SceneManager.sceneLoaded += OnSceneLoad;
     }
 
