@@ -11,6 +11,13 @@ public static class LoadBundle
     public static GameObject legsDamaged;
     public static Texture2D texDamaged;
     public static Texture2D texEnragedDamaged;
+    public static GameObject arms;
+
+    public static GameObject maurice;
+    public static Texture2D texMaurice;
+    public static Texture2D texEnragedMaurice;
+
+    public static Texture2D texThighs;
 
     public static void Load()
     {
@@ -22,6 +29,14 @@ public static class LoadBundle
         legsDamaged = (GameObject)bundle.LoadAsset("Assets/legs_cracked.prefab");
         texDamaged = (Texture2D)bundle.LoadAsset("Assets/T_Cerberus_Damaged.png");
         texEnragedDamaged = (Texture2D)bundle.LoadAsset("Assets/T_CerberusEnragedDamaged.png");
+
+        maurice = (GameObject)bundle.LoadAsset("Assets/maurice.prefab");
+        texMaurice = (Texture2D)bundle.LoadAsset("Assets/T_MaliciousFace.png");
+        texEnragedMaurice = (Texture2D)bundle.LoadAsset("Assets/T_MaliciousFaceEnraged.png");
+
+        texThighs = (Texture2D)bundle.LoadAsset("Assets/T_CerberusThighs.png");
+
+        arms = (GameObject)bundle.LoadAsset("Assets/arms.prefab");
         bundle.Unload(false);
     }
 }

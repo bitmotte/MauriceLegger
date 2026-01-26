@@ -11,7 +11,43 @@ public class MauriceDeathPatch : MonoBehaviour
 {
     static void Prefix(SpiderBody __instance)
     {
-        GameObject legs = Instantiate(LoadBundle.legs);
+        System.Random rnd = new System.Random();
+        int chosen = rnd.Next(4);
+
+        GameObject legsToInstantiate = new();
+        Specials specialToGive = Specials.normal;
+        Texture2D texToGive = LoadBundle.texHealthy;
+        Texture2D texToGiveEnraged = LoadBundle.texEnraged;
+        switch (chosen)
+        {
+            case 0:
+                legsToInstantiate = LoadBundle.arms;
+                specialToGive = Specials.arms;
+                texToGive = LoadBundle.texHealthy;
+                texToGiveEnraged = LoadBundle.texEnraged;
+                break;
+            case 1:
+                legsToInstantiate = LoadBundle.maurice;
+                specialToGive = Specials.maurice;
+                texToGive = LoadBundle.texMaurice;
+                texToGiveEnraged = LoadBundle.texEnragedMaurice;
+                break;
+            case 2:
+                legsToInstantiate = LoadBundle.legs;
+                specialToGive = Specials.thighs;
+                texToGive = LoadBundle.texThighs;
+                texToGiveEnraged = LoadBundle.texThighs;
+                break;
+            default:
+                legsToInstantiate = LoadBundle.legs;
+                specialToGive = Specials.normal;
+                texToGive = LoadBundle.texHealthy;
+                texToGiveEnraged = LoadBundle.texEnraged;
+                break;
+        }
+        
+        
+        GameObject legs = Instantiate(legsToInstantiate);
         legs.transform.parent = __instance.transform;
         legs.transform.localPosition = new(0f, -0.96f, 0f);
         legs.transform.localScale = new(0.1f, 0.12f, 0.1f);
@@ -21,7 +57,7 @@ public class MauriceDeathPatch : MonoBehaviour
         SkinnedMeshRenderer renderer = legs.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
         Material newMat = new(mauriceShader)
         {
-            mainTexture = LoadBundle.texHealthy
+            mainTexture = texToGive
         };
         newMat.EnableKeyword("ENEMY");
         newMat.EnableKeyword("VERTEX_LIGHTING");
@@ -38,7 +74,7 @@ public class MauriceDeathPatch : MonoBehaviour
 
         Material newEnragedMat = new(mauriceShader)
         {
-            mainTexture = LoadBundle.texEnraged
+            mainTexture = texToGiveEnraged
         };
         newEnragedMat.EnableKeyword("ENEMY");
         newEnragedMat.EnableKeyword("VERTEX_LIGHTING");
@@ -53,6 +89,7 @@ public class MauriceDeathPatch : MonoBehaviour
 
         FollowSpeed legFollow = legs.AddComponent<FollowSpeed>();
         legFollow.follow = __instance.gameObject;
+        legFollow.special = specialToGive;
 
         legs.transform.GetChild(0).gameObject.layer = true ? 25 : 24;
 
@@ -95,7 +132,8 @@ public class MauriceDeathPatch : MonoBehaviour
             float maxHealth = (float)instanceFields.Field("maxHealth").GetValue();
 
             GameObject legs = __instance.transform.GetChild(3).gameObject;
-            bool wounded = legs.GetComponent<FollowSpeed>().wounded;
+            FollowSpeed followSpeed = legs.GetComponent<FollowSpeed>();
+            bool wounded = followSpeed.wounded;
 
             if(health < maxHealth / 2f && !wounded)
             {
@@ -103,6 +141,12 @@ public class MauriceDeathPatch : MonoBehaviour
 
                 SkinnedMeshRenderer renderer = legs.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
                 Mesh newMesh = LoadBundle.legsDamaged.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMesh;
+                if(followSpeed.special != Specials.normal)
+                {
+                    EnemySimplifier simplifier1 = legs.transform.GetChild(0).gameObject.GetComponent<EnemySimplifier>();
+                    renderer.material = simplifier1.originalMaterial;
+                    return;
+                }
                 renderer.sharedMesh = newMesh;
 
                 Material newMat = new(mauriceShader)

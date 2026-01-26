@@ -6,6 +6,7 @@ public class FollowSpeed : MonoBehaviour
 {
     public GameObject follow;
     public bool wounded;
+    public Specials special;
     Animator animator;
     Vector3 prevPos = new(0,0,0);
     float legSpeed;
