@@ -5,6 +5,7 @@ namespace MauriceLegger;
 public class FollowSpeed : MonoBehaviour
 {
     public GameObject follow;
+    public bool wounded;
     Animator animator;
     Vector3 prevPos = new(0,0,0);
     void Awake()
@@ -14,7 +15,7 @@ public class FollowSpeed : MonoBehaviour
 
     void Update()
     {
-        animator.speed = Vector3.Distance(prevPos, follow.transform.position) * 120;
+        animator.speed = Vector3.Distance(prevPos, follow.transform.position) * 256;
         transform.eulerAngles = new(0,follow.transform.GetChild(0).eulerAngles.y,0);
         prevPos = follow.transform.position;
     }

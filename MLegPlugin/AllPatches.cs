@@ -67,8 +67,82 @@ public class MauriceDeathPatch : MonoBehaviour
     {
         static void Postfix(SpiderBody __instance)
         {
-            EnemySimplifier simplifier = __instance.transform.GetChild(3).GetChild(0).GetComponent<EnemySimplifier>();;
+            EnemySimplifier simplifier = __instance.transform.GetChild(3).GetChild(0).GetComponent<EnemySimplifier>();
             simplifier.ChangeMaterialNew(EnemySimplifier.MaterialState.enraged, simplifier.enragedMaterial);
+        }
+    }
+
+    [HarmonyPatch(typeof(SpiderBody), "UnEnrage")]
+    public class MauriceUnEnragePatch : MonoBehaviour
+    {
+        static void Postfix(SpiderBody __instance)
+        {
+            EnemySimplifier simplifier = __instance.transform.GetChild(3).GetChild(0).GetComponent<EnemySimplifier>();
+            simplifier.ChangeMaterialNew(EnemySimplifier.MaterialState.normal, simplifier.originalMaterial);
+        }
+    }
+
+    [HarmonyPatch(typeof(SpiderBody), "GetHurt")]
+    public class MauriceWoundPatch : MonoBehaviour
+    {
+        static void Postfix(SpiderBody __instance)
+        {
+            EnemyIdentifier eid = __instance.GetComponent<EnemyIdentifier>();
+            if(eid.dead) {return;}
+
+            Traverse instanceFields = Traverse.Create(__instance);
+            float health = (float)instanceFields.Field("health").GetValue();
+            float maxHealth = (float)instanceFields.Field("maxHealth").GetValue();
+
+            GameObject legs = __instance.transform.GetChild(3).gameObject;
+            bool wounded = legs.GetComponent<FollowSpeed>().wounded;
+
+            if(health < maxHealth / 2f && !wounded)
+            {
+                Shader mauriceShader = __instance.transform.GetChild(0).GetChild(5).GetComponent<SkinnedMeshRenderer>().material.shader;
+
+                SkinnedMeshRenderer renderer = legs.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
+                Mesh newMesh = LoadBundle.legsDamaged.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMesh;
+                renderer.sharedMesh = newMesh;
+
+                Material newMat = new(mauriceShader)
+                {
+                    mainTexture = LoadBundle.texDamaged
+                };
+                newMat.EnableKeyword("ENEMY");
+                newMat.EnableKeyword("VERTEX_LIGHTING");
+                newMat.EnableKeyword("_FOG_ON");
+                newMat.EnableKeyword("_USEALBEDOASEMISSIVE_ON");
+                newMat.EnableKeyword("_VERTEXCOLORS_ON");
+                newMat.EnableKeyword("_VERTEXLIGHTING_ON");
+                newMat.EnableKeyword("_ZWRITE_ON");
+                renderer.material = newMat;
+
+                EnemySimplifier simplifier = legs.transform.GetChild(0).gameObject.GetComponent<EnemySimplifier>();
+                simplifier.originalMaterial = newMat;
+                simplifier.simplifiedMaterial = newMat;
+                //simplifier.
+
+                Material newEnragedMat = new(mauriceShader)
+                {
+                    mainTexture = LoadBundle.texEnragedDamaged
+                };
+                newEnragedMat.EnableKeyword("ENEMY");
+                newEnragedMat.EnableKeyword("VERTEX_LIGHTING");
+                newEnragedMat.EnableKeyword("_FOG_ON");
+                newEnragedMat.EnableKeyword("_USEALBEDOASEMISSIVE_ON");
+                newEnragedMat.EnableKeyword("_VERTEXCOLORS_ON");
+                newEnragedMat.EnableKeyword("_VERTEXLIGHTING_ON");
+                newEnragedMat.EnableKeyword("_ZWRITE_ON");
+
+                simplifier.enragedMaterial = newEnragedMat;
+                simplifier.enragedSimplifiedMaterial = newEnragedMat;
+
+                FollowSpeed legFollow = legs.GetComponent<FollowSpeed>();
+                legFollow.wounded = true;
+
+                legs.transform.GetChild(0).gameObject.layer = true ? 25 : 24;
+            }
         }
     }
 }
