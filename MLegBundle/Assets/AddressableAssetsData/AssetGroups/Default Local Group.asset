@@ -112,6 +112,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98f17e8d9cc8c46d3be79b8ec962144a
+    m_Address: Assets/T_CerberusThighsEnraged.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 52bbee76f3defc0c48d1abffe773c8ed, type: 2}
   m_SchemaSet:

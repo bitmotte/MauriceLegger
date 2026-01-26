@@ -18,6 +18,7 @@ public static class LoadBundle
     public static Texture2D texEnragedMaurice;
 
     public static Texture2D texThighs;
+    public static Texture2D texThighsEnraged;
 
     public static void Load()
     {
@@ -35,6 +36,7 @@ public static class LoadBundle
         texEnragedMaurice = (Texture2D)bundle.LoadAsset("Assets/T_MaliciousFaceEnraged.png");
 
         texThighs = (Texture2D)bundle.LoadAsset("Assets/T_CerberusThighs.png");
+        texThighsEnraged = (Texture2D)bundle.LoadAsset("Assets/T_CerberusThighsEnraged.png");
 
         arms = (GameObject)bundle.LoadAsset("Assets/arms.prefab");
         bundle.Unload(false);

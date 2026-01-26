@@ -12,7 +12,7 @@ public class MauriceDeathPatch : MonoBehaviour
     static void Prefix(SpiderBody __instance)
     {
         System.Random rnd = new System.Random();
-        int chosen = rnd.Next(4);
+        int chosen = rnd.Next(100);
 
         GameObject legsToInstantiate = new();
         Specials specialToGive = Specials.normal;
@@ -21,22 +21,46 @@ public class MauriceDeathPatch : MonoBehaviour
         switch (chosen)
         {
             case 0:
+                if(!AccessibleConfigs.armLegs)
+                {
+                    legsToInstantiate = LoadBundle.legs;
+                    specialToGive = Specials.normal;
+                    texToGive = LoadBundle.texHealthy;
+                    texToGiveEnraged = LoadBundle.texEnraged;
+                    break;
+                }
                 legsToInstantiate = LoadBundle.arms;
                 specialToGive = Specials.arms;
                 texToGive = LoadBundle.texHealthy;
                 texToGiveEnraged = LoadBundle.texEnraged;
                 break;
             case 1:
+                if(!AccessibleConfigs.mauriceLegs)
+                {
+                    legsToInstantiate = LoadBundle.legs;
+                    specialToGive = Specials.normal;
+                    texToGive = LoadBundle.texHealthy;
+                    texToGiveEnraged = LoadBundle.texEnraged;
+                    break;
+                }
                 legsToInstantiate = LoadBundle.maurice;
                 specialToGive = Specials.maurice;
                 texToGive = LoadBundle.texMaurice;
                 texToGiveEnraged = LoadBundle.texEnragedMaurice;
                 break;
             case 2:
+                if(!AccessibleConfigs.thighs)
+                {
+                    legsToInstantiate = LoadBundle.legs;
+                    specialToGive = Specials.normal;
+                    texToGive = LoadBundle.texHealthy;
+                    texToGiveEnraged = LoadBundle.texEnraged;
+                    break;
+                }
                 legsToInstantiate = LoadBundle.legs;
                 specialToGive = Specials.thighs;
                 texToGive = LoadBundle.texThighs;
-                texToGiveEnraged = LoadBundle.texThighs;
+                texToGiveEnraged = LoadBundle.texThighsEnraged;
                 break;
             default:
                 legsToInstantiate = LoadBundle.legs;
