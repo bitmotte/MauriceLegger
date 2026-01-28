@@ -213,4 +213,14 @@ public class MauriceDeathPatch : MonoBehaviour
             }
         }
     }
+
+    [HarmonyPatch(typeof(SpiderBody), "Die")]
+    public class MauriceBallerDeathPatch : MonoBehaviour
+    {
+        static void Prefix(SpiderBody __instance)
+        {
+            FollowSpeed followSpeed = __instance.transform.GetChild(3).GetComponent<FollowSpeed>();
+            followSpeed.setRot = false;
+        }
+    }
 }
