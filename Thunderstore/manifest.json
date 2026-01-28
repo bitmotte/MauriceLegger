@@ -3,5 +3,8 @@
     "version_number": "1.0.0",
     "website_url": "https://github.com/bitmotte/MauriceLegger",
     "description": "Maurices have legs,like a cerberus . . .",
-    "dependencies": ["BepInEx-BepInExPack-5.4.2100"]
+    "dependencies": [
+    	"BepInEx-BepInExPack-5.4.2100",
+	"EternalsTeam-PluginConfigurator-1.10.2"
+    ]
 }
