@@ -11,6 +11,15 @@ public class MauriceDeathPatch : MonoBehaviour
 {
     static void Prefix(SpiderBody __instance)
     {
+        LineRenderer[] legRenderers = __instance.transform.parent.GetComponentsInChildren<LineRenderer>();
+        Color none = new(0,0,0,0);
+        foreach (LineRenderer legRenderer in legRenderers)
+        {
+            legRenderer.startColor = none;
+            legRenderer.endColor = none;
+        }
+
+
         System.Random rnd = new System.Random();
         int chosen = rnd.Next(100);
 
