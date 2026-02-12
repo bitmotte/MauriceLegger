@@ -11,12 +11,26 @@ public class FollowSpeed : MonoBehaviour
     Animator animator;
     Vector3 prevPos = new(0,0,0);
     float legSpeed;
+    Transform[] bobbing;
+    Vector3 plus = new(0,0.01f,0);
 
     void Awake()
     {
         animator = GetComponent<Animator>();
         legSpeed = AccessibleConfigs.legSpeed;
         SlowUpdate();
+
+        Transform boneParent = transform.parent.GetChild(0);
+        Transform[] bobbingTransforms = [
+            boneParent.GetChild(0),
+            boneParent.GetChild(1),
+            boneParent.GetChild(2),
+            boneParent.GetChild(3),
+            boneParent.GetChild(4),
+            boneParent.GetChild(5),
+            boneParent.GetChild(7)
+        ];
+        bobbing = bobbingTransforms;
     }
 
     void Update()
@@ -26,6 +40,12 @@ public class FollowSpeed : MonoBehaviour
         {
             transform.eulerAngles = new(0,follow.transform.GetChild(0).eulerAngles.y,0);   
         }
+
+        foreach (Transform bone in bobbing)
+        {
+            //bone.position += plus;
+        }
+
         prevPos = follow.transform.position;
     }
 

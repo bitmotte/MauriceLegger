@@ -128,8 +128,11 @@ public class MauriceDeathPatch : MonoBehaviour
 
         GameObject[] newTargets = [__instance.transform.GetChild(0).GetChild(5).gameObject, legs.transform.GetChild(0).gameObject];
 
-        OutdoorsChecker outdoorsChecker = __instance.GetComponentInChildren<OutdoorsChecker>();
-        outdoorsChecker.targets = newTargets;
+        if(__instance.GetComponentInChildren<OutdoorsChecker>() != null)
+        {
+            OutdoorsChecker outdoorsChecker = __instance.GetComponentInChildren<OutdoorsChecker>();
+            outdoorsChecker.targets = newTargets;
+        }
     }
 
     [HarmonyPatch(typeof(SpiderBody), "Enrage")]
