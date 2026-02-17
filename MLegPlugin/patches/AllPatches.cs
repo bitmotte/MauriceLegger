@@ -21,7 +21,7 @@ public class MauriceDeathPatch : MonoBehaviour
 
 
         System.Random rnd = new System.Random();
-        int chosen = rnd.Next(4);
+        int chosen = rnd.Next(5);
 
         //why did i do it like this
         GameObject legsToInstantiate = new();
@@ -71,6 +71,20 @@ public class MauriceDeathPatch : MonoBehaviour
                 specialToGive = Specials.thighs;
                 texToGive = LoadBundle.texThighs;
                 texToGiveEnraged = LoadBundle.texThighsEnraged;
+                break;
+            case 3:
+                if(!AccessibleConfigs.realArms)
+                {
+                    legsToInstantiate = LoadBundle.legs;
+                    specialToGive = Specials.normal;
+                    texToGive = LoadBundle.texHealthy;
+                    texToGiveEnraged = LoadBundle.texEnraged;
+                    break;
+                }
+                legsToInstantiate = LoadBundle.realArms;
+                specialToGive = Specials.realArms;
+                texToGive = LoadBundle.texHealthy;
+                texToGiveEnraged = LoadBundle.texEnraged;
                 break;
             default:
                 legsToInstantiate = LoadBundle.legs;

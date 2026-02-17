@@ -16,26 +16,26 @@ public static class MauriceConfigurator
         config.image = icon;
 
         FloatField legSpeed = new(config.rootPanel, "Leg Speed", "mleg.legspeed", 128f);
-        //BoolField legacyRunField = new(config.rootPanel, "Legacy Run Animation", "mleg.legacy_run", false);
         BoolField sitAtGroundField = new(config.rootPanel, "Sit when near ground", "mleg.sit", true);
         ConfigPanel secretPanel = new(config.rootPanel, "Secret Variations ( 3 )", "mleg.secretvars");
         BoolField armsField = new(secretPanel, "Arm Legs", "mleg.arms", true);
         BoolField mauriceField = new(secretPanel, "Maurice Legs", "mleg.maurice", true);
         BoolField thighsField = new(secretPanel, "Thigh Highs", "mleg.thighs", true);
+        BoolField realArmsField = new(secretPanel, "Arms", "mleg.real_arms", true);
 
         legSpeed.postValueChangeEvent += UpdateLegSpeed;
-        //legacyRunField.postValueChangeEvent += UpdateLegacyRun;
         sitAtGroundField.postValueChangeEvent += UpdateSit;
         armsField.postValueChangeEvent += UpdateArms;
         mauriceField.postValueChangeEvent += UpdateMaurice;
         thighsField.postValueChangeEvent += UpdateThighs;
+        realArmsField.postValueChangeEvent += UpdateRealArms;
 
         legSpeed.TriggerPostValueChangeEvent();
-        //legacyRunField.TriggerPostValueChangeEvent();
         sitAtGroundField.TriggerPostValueChangeEvent();
         armsField.TriggerPostValueChangeEvent();
         mauriceField.TriggerPostValueChangeEvent();
         thighsField.TriggerPostValueChangeEvent();
+        realArmsField.TriggerPostValueChangeEvent();
         
         return config;
     }
@@ -46,10 +46,10 @@ public static class MauriceConfigurator
         AccessibleConfigs.legSpeed = value;
     }
 
-    private static void UpdateLegacyRun(bool value)
+    private static void UpdateRealArms(bool value)
     {
-        Plugin.Logger.LogInfo($"Update legacy run to {value}! ! ! ! ! !");
-        AccessibleConfigs.legacyRun = value;
+        Plugin.Logger.LogInfo($"Update real arms to {value}! ! ! ! ! !");
+        AccessibleConfigs.realArms = value;
     }
 
     private static void UpdateSit(bool value)

@@ -97,6 +97,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc756308380d0e4d6ad9ab407e269f73
+    m_Address: Assets/real-arms.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2a4edb5458b12a3aa5284fba21e0164
+    m_Address: Assets/cerb_runner_real_arms.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 52bbee76f3defc0c48d1abffe773c8ed, type: 2}
   m_SchemaSet:

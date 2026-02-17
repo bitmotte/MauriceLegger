@@ -5,5 +5,6 @@ public enum Specials
     normal,
     arms,
     maurice,
-    thighs
+    thighs,
+    realArms
 }
