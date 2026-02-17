@@ -1,3 +1,6 @@
+# 2.0.2
+- make varitatio ns rate\agian GOD DAMNIT
+
 # 2.0.1
 - Make variations rare ( i forgot to set it back )
 
