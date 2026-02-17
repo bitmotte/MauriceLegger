@@ -1,3 +1,6 @@
+# 2.0.1
+- Make variations rare ( i forgot to set it back )
+
 # 2.0.0
 - Added new secret variation
 - Maurices now sit down when near ground
