@@ -11,6 +11,9 @@ TagManager:
   - 
   - Water
   - UI
+  - OutdoorsBaked
+  - EnvironmentBaked
+  - Environment
   - 
   - 
   - 
@@ -26,11 +29,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Outdoors
+  - Outdoors
   - 
   - 
   - 

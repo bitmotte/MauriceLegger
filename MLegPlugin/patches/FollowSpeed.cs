@@ -11,8 +11,9 @@ public class FollowSpeed : MonoBehaviour
     Animator animator;
     Vector3 prevPos = new(0,0,0);
     float legSpeed;
-    Transform[] bobbing;
-    Vector3 plus = new(0,0.01f,0);
+    Transform childOffsetters;
+    Transform baseBone;
+    Vector3 offset;
 
     void Awake()
     {
@@ -20,17 +21,12 @@ public class FollowSpeed : MonoBehaviour
         legSpeed = AccessibleConfigs.legSpeed;
         SlowUpdate();
 
-        Transform boneParent = transform.parent.GetChild(0);
-        Transform[] bobbingTransforms = [
-            boneParent.GetChild(0),
-            boneParent.GetChild(1),
-            boneParent.GetChild(2),
-            boneParent.GetChild(3),
-            boneParent.GetChild(4),
-            boneParent.GetChild(5),
-            boneParent.GetChild(7)
-        ];
-        bobbing = bobbingTransforms;
+        childOffsetters = transform.parent.GetChild(0);
+
+        baseBone = transform.GetChild(1).GetChild(0);
+
+        SitDetector detector = transform.GetChild(1).GetChild(0).GetChild(2).gameObject.AddComponent<SitDetector>();
+        detector.animator = animator;
     }
 
     void Update()
@@ -41,10 +37,11 @@ public class FollowSpeed : MonoBehaviour
             transform.eulerAngles = new(0,follow.transform.GetChild(0).eulerAngles.y,0);   
         }
 
-        foreach (Transform bone in bobbing)
-        {
-            //bone.position += plus;
-        }
+        Vector3 prevOffset = offset;
+        childOffsetters.position -= prevOffset;
+        offset = baseBone.position - childOffsetters.position;
+
+        childOffsetters.position += offset;
 
         prevPos = follow.transform.position;
     }
@@ -59,5 +56,14 @@ public class FollowSpeed : MonoBehaviour
             return;
         }
         legSpeed = AccessibleConfigs.legSpeed;
+
+        if(AccessibleConfigs.legacyRun == true)
+        {
+            animator.SetBoolString("legacy_run",true);
+        }
+        else
+        {
+            animator.SetBoolString("legacy_run",false);
+        }
     }
 }

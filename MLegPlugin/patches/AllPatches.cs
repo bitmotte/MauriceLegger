@@ -21,8 +21,9 @@ public class MauriceDeathPatch : MonoBehaviour
 
 
         System.Random rnd = new System.Random();
-        int chosen = rnd.Next(100);
+        int chosen = rnd.Next(4);
 
+        //why did i do it like this
         GameObject legsToInstantiate = new();
         Specials specialToGive = Specials.normal;
         Texture2D texToGive = LoadBundle.texHealthy;
@@ -233,6 +234,7 @@ public class MauriceDeathPatch : MonoBehaviour
         {
             FollowSpeed followSpeed = __instance.transform.GetChild(3).GetComponent<FollowSpeed>();
             followSpeed.setRot = false;
+            followSpeed.transform.GetChild(1).GetChild(0).GetChild(2).gameObject.GetComponent<SitDetector>().Disable();
         }
     }
 }

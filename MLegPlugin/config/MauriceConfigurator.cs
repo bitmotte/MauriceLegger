@@ -15,18 +15,24 @@ public static class MauriceConfigurator
         Sprite icon = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
         config.image = icon;
 
-        FloatField legSpeed = new(config.rootPanel, "Leg Speed", "mleg.legspeed", 256f);
+        FloatField legSpeed = new(config.rootPanel, "Leg Speed", "mleg.legspeed", 128f);
+        //BoolField legacyRunField = new(config.rootPanel, "Legacy Run Animation", "mleg.legacy_run", false);
+        BoolField sitAtGroundField = new(config.rootPanel, "Sit when near ground", "mleg.sit", true);
         ConfigPanel secretPanel = new(config.rootPanel, "Secret Variations ( 3 )", "mleg.secretvars");
         BoolField armsField = new(secretPanel, "Arm Legs", "mleg.arms", true);
         BoolField mauriceField = new(secretPanel, "Maurice Legs", "mleg.maurice", true);
         BoolField thighsField = new(secretPanel, "Thigh Highs", "mleg.thighs", true);
 
         legSpeed.postValueChangeEvent += UpdateLegSpeed;
+        //legacyRunField.postValueChangeEvent += UpdateLegacyRun;
+        sitAtGroundField.postValueChangeEvent += UpdateSit;
         armsField.postValueChangeEvent += UpdateArms;
         mauriceField.postValueChangeEvent += UpdateMaurice;
         thighsField.postValueChangeEvent += UpdateThighs;
 
         legSpeed.TriggerPostValueChangeEvent();
+        //legacyRunField.TriggerPostValueChangeEvent();
+        sitAtGroundField.TriggerPostValueChangeEvent();
         armsField.TriggerPostValueChangeEvent();
         mauriceField.TriggerPostValueChangeEvent();
         thighsField.TriggerPostValueChangeEvent();
@@ -38,6 +44,18 @@ public static class MauriceConfigurator
     {
         Plugin.Logger.LogInfo($"Update leg speed to {value}! ! ! ! ! !");
         AccessibleConfigs.legSpeed = value;
+    }
+
+    private static void UpdateLegacyRun(bool value)
+    {
+        Plugin.Logger.LogInfo($"Update legacy run to {value}! ! ! ! ! !");
+        AccessibleConfigs.legacyRun = value;
+    }
+
+    private static void UpdateSit(bool value)
+    {
+        Plugin.Logger.LogInfo($"Update sit to {value}! ! ! ! ! !");
+        AccessibleConfigs.sit = value;
     }
 
     private static void UpdateArms(bool value)
@@ -65,7 +83,7 @@ public static class MauriceConfigurator
 	    if (File.Exists(filePath)) 	{
 	    	fileData = File.ReadAllBytes(filePath);
 	    	tex = new Texture2D(2, 2);
-	    	tex.LoadImage(fileData); //..this will auto-resize the texture dimensions.
+	    	tex.LoadImage(fileData); // . . . this will auto-resize the texture dimensions . . .
 	    }
 	    return tex;
     }

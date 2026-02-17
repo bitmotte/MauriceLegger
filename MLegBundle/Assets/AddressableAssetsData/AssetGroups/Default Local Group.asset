@@ -27,11 +27,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 13a661c9c7a4f4ba1b8cae3a8d2dde68
-    m_Address: Assets/model.fbx
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c19edbea60b52724781a8c86e005e14e
     m_Address: Assets/T_Cerberus.png
     m_ReadOnly: 0
@@ -44,11 +39,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a57507688e0bcd3fa919a470ea67151f
     m_Address: Assets/legs_cracked.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0ab8bd7b16aaee21ca8cdc449e197778
-    m_Address: Assets/model-cracked.fbx
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -67,17 +57,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2257e5d3656329d9abfb1513b67ac0df
-    m_Address: Assets/arms.fbx
+  - m_GUID: 28540f5e3e52677c886fd074966fd596
+    m_Address: Assets/cerb_runner_maurice.controller
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 723a515126d8cb4b5a2871f0d4747d45
-    m_Address: Assets/cerb_runner_arms.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b3a8a47bf6c4c00aaa4f37ecf02d92fb
+  - m_GUID: 9b6774bea9e82cc3198efd2cd229ee35
     m_Address: Assets/cerb_runner_cracked.controller
     m_ReadOnly: 0
     m_SerializedLabels: []
@@ -87,13 +72,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cb11cf79ee25ca737bd92a9d862c61c7
-    m_Address: Assets/maurice.fbx
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: eafc6e4a08ff0c9cf9ebea2bff4b7a46
-    m_Address: Assets/cerb_runner_maurice.controller
+  - m_GUID: 88f8d24f8f37336dc8b7607b130bf37c
+    m_Address: Assets/cerb_runner_arms.controller
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

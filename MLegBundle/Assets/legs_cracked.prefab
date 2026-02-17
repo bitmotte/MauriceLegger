@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5598844323734604692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7390362367817413913}
+  - component: {fileID: 4248034835048944781}
+  m_Layer: 0
+  m_Name: SitDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7390362367817413913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598844323734604692}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.9997293, y: 0.02042634, z: -0.009798746, w: 0.005316585}
+  m_LocalPosition: {x: -0.001586982, y: 0.04017496, z: 0.0025882348}
+  m_LocalScale: {x: 0.010000001, y: 0.009999994, z: 0.009999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8948801610404956458}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4248034835048944781
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598844323734604692}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 50332096
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 55
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6084497650815337921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50,11 +103,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0ab8bd7b16aaee21ca8cdc449e197778, type: 3}
       propertyPath: m_Name
-      value: model-cracked
+      value: legs_cracked
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2900597189961944299, guid: 0ab8bd7b16aaee21ca8cdc449e197778, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7390362367817413913}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ab8bd7b16aaee21ca8cdc449e197778, type: 3}
       insertIndex: -1
@@ -75,7 +131,7 @@ Animator:
   m_GameObject: {fileID: 6390911000324946064}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b3a8a47bf6c4c00aaa4f37ecf02d92fb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9b6774bea9e82cc3198efd2cd229ee35, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -86,3 +142,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &8948801610404956458 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2900597189961944299, guid: 0ab8bd7b16aaee21ca8cdc449e197778, type: 3}
+  m_PrefabInstance: {fileID: 6084497650815337921}
+  m_PrefabAsset: {fileID: 0}
