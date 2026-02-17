@@ -3,7 +3,7 @@
 
 Maurices have legs,like a cerberus . . . Very tiny mod,comes with a few useful config .
 
-It also comes with 3 rare variation . . . Can you find them all ?
+It also comes with 4 rare variation . . . Can you find them all ?
 \
 \
 \

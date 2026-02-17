@@ -17,7 +17,7 @@ public static class MauriceConfigurator
 
         FloatField legSpeed = new(config.rootPanel, "Leg Speed", "mleg.legspeed", 128f);
         BoolField sitAtGroundField = new(config.rootPanel, "Sit when near ground", "mleg.sit", true);
-        ConfigPanel secretPanel = new(config.rootPanel, "Secret Variations ( 3 )", "mleg.secretvars");
+        ConfigPanel secretPanel = new(config.rootPanel, "Secret Variations", "mleg.secretvars");
         BoolField armsField = new(secretPanel, "Arm Legs", "mleg.arms", true);
         BoolField mauriceField = new(secretPanel, "Maurice Legs", "mleg.maurice", true);
         BoolField thighsField = new(secretPanel, "Thigh Highs", "mleg.thighs", true);
