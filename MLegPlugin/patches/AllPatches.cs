@@ -21,7 +21,7 @@ public class MauriceDeathPatch : MonoBehaviour
 
 
         System.Random rnd = new System.Random();
-        int chosen = rnd.Next(5);
+        int chosen = rnd.Next(100);
 
         //why did i do it like this
         GameObject legsToInstantiate = new();
