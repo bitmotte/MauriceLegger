@@ -15,101 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
-  m_GUID: cb08e5844d5832feb8ec79b0c58dbaa1
-  m_SerializeEntries:
-  - m_GUID: 00bb65ac89b762f5193cbbae4997a585
-    m_Address: Assets/legs.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1f9afbaddef6c37ff81165d9dee3f2b2
-    m_Address: Assets/cerb_runner.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c19edbea60b52724781a8c86e005e14e
-    m_Address: Assets/T_Cerberus.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f26d1a3cb0d2616999ee688545a39978
-    m_Address: Assets/T_CerberusEnraged.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a57507688e0bcd3fa919a470ea67151f
-    m_Address: Assets/legs_cracked.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cb3aca2a9954827559e76f60567a49dc
-    m_Address: Assets/T_Cerberus_Damaged.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 82c42ea0064c3ff1d91164aaf342182c
-    m_Address: Assets/T_CerberusEnragedDamaged.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ae4b0397d76f81a22bd2c14f732b25bd
-    m_Address: Assets/arms.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 28540f5e3e52677c886fd074966fd596
-    m_Address: Assets/cerb_runner_maurice.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9b6774bea9e82cc3198efd2cd229ee35
-    m_Address: Assets/cerb_runner_cracked.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6740f86ce4d2dbae9b1e86d3f3c81469
-    m_Address: Assets/maurice.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 88f8d24f8f37336dc8b7607b130bf37c
-    m_Address: Assets/cerb_runner_arms.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7ad401b09055e7e54943cf391c1a3395
-    m_Address: Assets/T_MaliciousFace.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5c12d1271365d12e3b3f453807be2ee0
-    m_Address: Assets/T_MaliciousFaceEnraged.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ab5a03ce542424474976a0a2576a273c
-    m_Address: Assets/T_CerberusThighs.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 98f17e8d9cc8c46d3be79b8ec962144a
-    m_Address: Assets/T_CerberusThighsEnraged.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fc756308380d0e4d6ad9ab407e269f73
-    m_Address: Assets/real-arms.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d2a4edb5458b12a3aa5284fba21e0164
-    m_Address: Assets/cerb_runner_real_arms.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_GUID: cc68c3176e705654393ccda95fe8055f
+  m_SerializeEntries: []
   m_ReadOnly: 0
-  m_Settings: {fileID: 11400000, guid: 52bbee76f3defc0c48d1abffe773c8ed, type: 2}
+  m_Settings: {fileID: 11400000, guid: d35654f03a57746589c938f14068a523, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: b455b6cc8f6500ae5b4dff49dcd207d0, type: 2}
-    - {fileID: 11400000, guid: 93619dad150170a808297721d4f1bf7e, type: 2}
+    - {fileID: 11400000, guid: f229e57f383baa6b383bdc717674620b, type: 2}
+    - {fileID: 11400000, guid: 5b28a94da540f42e9ae57302603e0214, type: 2}

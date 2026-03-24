@@ -3,7 +3,7 @@ userpath=""
 
 currentdir=$(pwd)
 
-rm ${currentdir}/resources/leg.bundle
+rm ${currentdir}/resources/legs.bundle
 
 echo ""
 echo "finding bundle. . ."
@@ -19,5 +19,5 @@ bundle=${bundle#./}
 cd ${currentdir}
 
 echo "copying bundle to project resources"
-cp "${userpath}Library/com.unity.addressables/aa/Windows/StandaloneWindows64/${bundle}" "./resources/leg.bundle"
+cp "${userpath}Library/com.unity.addressables/aa/Windows/StandaloneWindows64/${bundle}" "./resources/legs.bundle"
 echo "done! ! !"

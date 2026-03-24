@@ -45,6 +45,5 @@ fi
 echo "copying build to ultrakill folders"
 mkdir "${userpath}plugins/MauriceLegger/"
 cp "./bin/Debug/netstandard2.1/bitmotte.MauriceLegger.dll" "${userpath}plugins/MauriceLegger/"
-cp "./resources/leg.bundle" "${userpath}plugins/MauriceLegger/"
-cp "./resources/DONTDELETE_icon.png" "${userpath}plugins/MauriceLegger/"
+cp "./resources/icon.png" "${userpath}plugins/MauriceLegger/"
 echo "done! ! !"

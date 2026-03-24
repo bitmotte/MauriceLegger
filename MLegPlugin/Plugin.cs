@@ -22,12 +22,9 @@ public class Plugin : BaseUnityPlugin
         var harmony = new Harmony(MyPluginInfo.PLUGIN_GUID);
         harmony.PatchAll();
 
-        config = MauriceConfigurator.CreateConfigurator();
-        SceneManager.sceneLoaded += OnSceneLoad;
-    }
+        //configurator
+        config = LegConfigurator.CreateConfigurator();
 
-    public static void OnSceneLoad(Scene scene, LoadSceneMode mode)
-    {
-        LoadBundle.Load();
+        SceneManager.sceneLoaded += SceneUtility.OnSceneLoad;
     }
 }
