@@ -10,6 +10,6 @@ public class BallPatch : MonoBehaviour
 {
     static void Prefix(MaliciousFace __instance)
     {
-        
+        SecretVariations.MakeLegsWithSecretPossibility(__instance.gameObject);
     }
 }

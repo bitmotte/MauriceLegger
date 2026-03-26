@@ -3,7 +3,7 @@ using UnityEngine;
 namespace MauriceLegger;
 public static class SecretVariations
 {
-    public static void MakeBallWithSecretPossibility(GameObject gameObject)
+    public static void MakeLegsWithSecretPossibility(GameObject gameObject)
     {
         //1,101 for 1 in 100 chance
         int luck = Random.RandomRangeInt(1,101);
@@ -18,18 +18,20 @@ public static class SecretVariations
             }
             return;
         }
-        GenericLegs("???",gameObject);
+        GenericLegs("Assets/Legger/Legs/Legs.prefab",gameObject);
     }
 
     public static void GenericLegs(string key, GameObject malFace)
     {
-        AssetBundle bundle = BundleTool.Load("balls.bundle");
-        GameObject legs = (GameObject)bundle.LoadAsset(key);
+        AssetBundle bundle = BundleTool.Load("legs.bundle");
+        GameObject legs = Object.Instantiate((GameObject)bundle.LoadAsset(key));
         SetupResource.FixShader(legs);
         
-        legs.transform.parent = malFace.transform;
+        legs.transform.parent = malFace.transform.parent;
+        legs.transform.position = malFace.transform.position;
 
-        Object.Instantiate(legs);
+        LegsController controller = legs.AddComponent<LegsController>();
+        controller.turningBody = malFace.transform.parent;
 
         bundle.Unload(false);
     }

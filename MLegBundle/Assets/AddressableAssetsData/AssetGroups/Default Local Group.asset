@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: cc68c3176e705654393ccda95fe8055f
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 21dbdce60ab6746a2adb3b6d141a4e4e
+    m_Address: Assets/Legger/Legs/Legs.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d35654f03a57746589c938f14068a523, type: 2}
   m_SchemaSet:
