@@ -31,7 +31,8 @@ public static class SecretVariations
         legs.transform.position = malFace.transform.position;
 
         LegsController controller = legs.AddComponent<LegsController>();
-        controller.turningBody = malFace.transform.parent;
+        controller.movingBody = malFace.transform;
+        controller.turningBody = malFace.transform.GetChild(0);
 
         bundle.Unload(false);
     }

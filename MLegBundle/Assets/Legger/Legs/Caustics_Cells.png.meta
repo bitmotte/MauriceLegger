@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ff2dcc7ad980fde43a883f51a3108a22
-timeCreated: 1773797607
+guid: 8d6f6952da90003459a9599eebffde8d
+timeCreated: 1773797564
 licenseType: Free
 TextureImporter:
   serializedVersion: 13
@@ -23,7 +23,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0

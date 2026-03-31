@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cerberus
+  m_Name: Template
   m_Shader: {fileID: 4800000, guid: 77f0c393c23cbe64a9db28ab90a73a5c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -81,7 +81,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ff2dcc7ad980fde43a883f51a3108a22, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2d1d0607cf01dcf4283c29f4f1b25f2d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTex:

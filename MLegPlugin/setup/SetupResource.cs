@@ -40,6 +40,14 @@ public static class SetupResource
             }
         }
 
+        foreach (EnemySimplifier simplifier in gameObject.GetComponentsInChildren<EnemySimplifier>())
+        {
+            simplifier.simplifiedMaterial.shader = Master;
+            simplifier.enragedSimplifiedMaterial.shader = Master;
+            simplifier.enragedMaterial.shader = Master;
+            simplifier.enemyColorType = EnemyType.Cerberus;
+        }
+
         return gameObject;
     }
 }

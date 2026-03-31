@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 2a51cd726abf16192b740e3ef41d2f7f
+guid: 076a47907c4a53f2eacfe0f976a2d3d3
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: AndreHealthy
-    second: {fileID: 2100000, guid: f8521004455ac994db3c6db6728f7264, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: AndreHealthy.002
-    second: {fileID: 2100000, guid: f8521004455ac994db3c6db6728f7264, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
