@@ -13,7 +13,7 @@ public static class SecretVariations
             switch (luckVariation)
             {
                 default:
-                    
+                    GenericLegs("Assets/Legger/Variations/Tutu/Tutu.prefab",gameObject);
                     break;
             }
             return;
@@ -25,6 +25,9 @@ public static class SecretVariations
     {
         AssetBundle bundle = BundleTool.Load("legs.bundle");
         GameObject legs = Object.Instantiate((GameObject)bundle.LoadAsset(key));
+        GameObject step = (GameObject)bundle.LoadAsset("Assets/Legger/Legs/Footstep.prefab");
+        legs.GetComponentInChildren<Footsteps>().footstep = step;
+
         SetupResource.FixShader(legs);
         
         legs.transform.parent = malFace.transform.parent;
@@ -33,6 +36,7 @@ public static class SecretVariations
         LegsController controller = legs.AddComponent<LegsController>();
         controller.movingBody = malFace.transform;
         controller.turningBody = malFace.transform.GetChild(0);
+        controller.malFace = malFace.GetComponent<MaliciousFace>();
 
         bundle.Unload(false);
     }

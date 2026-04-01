@@ -48,6 +48,18 @@ public static class SetupResource
             simplifier.enemyColorType = EnemyType.Cerberus;
         }
 
+        foreach (Footsteps footstepsController in gameObject.GetComponentsInChildren<Footsteps>())
+        {
+            if(footstepsController.footstep == null) {continue;};
+            foreach (MeshRenderer renderer in footstepsController.footstep.GetComponentsInChildren<MeshRenderer>())
+            {
+                foreach (Material mat in renderer.materials)
+                {
+                    mat.shader = Addressables.LoadAssetAsync<Material>("Assets/Materials/Dev/FadeToWhite.mat").WaitForCompletion().shader;
+                }
+            }
+        }
+
         return gameObject;
     }
 }

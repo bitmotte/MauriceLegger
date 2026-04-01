@@ -8,6 +8,7 @@ public class LegsController : MonoBehaviour
     Transform armature;
     public Vector3 armatureOffset;
     Vector3 angleOffset;
+    public MaliciousFace malFace;
 
     //leg animation things
     public float lerpSpeed = 0.2f;
@@ -43,6 +44,11 @@ public class LegsController : MonoBehaviour
 
     EnemySimplifier[] ensims = [];
 
+    //footsteps
+    Transform footstepDestination;
+    Footsteps footstepsController;
+    Vector3 toTargetTarget;
+
     void Awake()
     {
         mask = LayerMask.GetMask(["Environment","EnvironmentBaked","OutdoorsBaked"]);
@@ -68,6 +74,9 @@ public class LegsController : MonoBehaviour
 
         ensims = transform.GetComponentsInChildren<EnemySimplifier>();
 
+        footstepDestination = transform.GetChild(3);
+        footstepsController = footstepDestination.GetComponent<Footsteps>();
+
         physicalLegs.gameObject.SetActive(false);
         DamagedLeft.enabled = false;
         DamagedRight.enabled = false;
@@ -88,25 +97,44 @@ public class LegsController : MonoBehaviour
 
     void StepLeft()
     {
+        if(malFace.spiderFalling) {return;}
         Invoke("StepRight",stepTime);
         if(!isPhysical)
         {
             if (Physics.Raycast(leftRayPoint.position, leftRayPoint.up, out RaycastHit hit, mask))
             {
-                leftTargetTarget = hit.point + Vector3.up;
+                toTargetTarget = hit.point + Vector3.up;
+                if(Vector3.Distance(toTargetTarget,leftTarget.position) > 0.2f)
+                {
+                    Invoke("MakeFootstep",stepTime - 0.45f);
+                }
+                leftTargetTarget = toTargetTarget;
             }
         }
     }
 
     void StepRight()
     {
+        if(malFace.spiderFalling) {return;}
         Invoke("StepLeft",stepTime);
         if(!isPhysical) {
             if(Physics.Raycast(rightRayPoint.position, rightRayPoint.up, out RaycastHit hit, mask))
             {
-                rightTargetTarget = hit.point + Vector3.up;
+                toTargetTarget = hit.point + Vector3.up;
+                if(Vector3.Distance(toTargetTarget,rightTarget.position) > 0.2f)
+                {
+                    Invoke("MakeFootstep",stepTime - 0.45f);
+                }
+                rightTargetTarget = toTargetTarget;
             }
         }
+    }
+
+    void MakeFootstep()
+    {
+        footstepDestination.position = toTargetTarget;
+        footstepDestination.eulerAngles = new(0,turningBody.eulerAngles.y,0);
+        footstepsController.Footstep();
     }
 
     public void SwitchToPhysicalLegs()
