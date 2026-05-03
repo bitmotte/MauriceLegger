@@ -32,6 +32,71 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8a0b8f7fde921c879b85792118e74ff
+    m_Address: Assets/Legger/Variations/Stilts/Template.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12dd39d89f351b7ccbe993674ef7c738
+    m_Address: Assets/Legger/Variations/HoldingArms/HoldingArms.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 123a101c6b7edb9549e48750be7bfbe3
+    m_Address: Assets/Legger/Variations/HoldingLegs/HoldingLegs.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85558d7525e7e9115aaea536c7d21fbd
+    m_Address: Assets/Legger/Variations/2D/2D.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79320fb273a9c51b1884d15a197f5900
+    m_Address: Assets/Legger/Variations/Mettaton/Mettaton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35ea3d5ab280e6a92a3871c786911ba1
+    m_Address: Assets/Legger/Variations/Sentry/Sentry.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f79a8d7725dac1d793cbd5e057c7072
+    m_Address: Assets/Legger/Variations/Swordsmachine/Swordsmachine.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ce5ccd25c795d913b6e0c05fb689e83
+    m_Address: Assets/Legger/Variations/ReconstructWhat/ReconstructWhat.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d65831ee1216bc4dd98ab059efad2cb1
+    m_Address: Assets/Legger/Variations/GrossMaurice/Gross.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39e01ae2a766ed99581f1a7698311823
+    m_Address: Assets/Legger/Variations/MiniMaurice/MiniMaurice.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07642267df8738e429dee4d9e800dbd9
+    m_Address: Assets/Legger/Variations/ThighHighs/ThighHighs.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae23fe0de5e958a06847da3b1dc9e8c9
+    m_Address: Assets/Legger/Variations/HandLegs/HandLegs.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de66d30282bb6185880a2f9a25966af3
+    m_Address: Assets/Legger/Variations/Plush/Plush.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d35654f03a57746589c938f14068a523, type: 2}
   m_SchemaSet:

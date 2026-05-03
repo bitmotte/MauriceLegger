@@ -28,6 +28,7 @@
     <Reference Include="lib/Unity.ResourceManager.dll" />
 
     <PackageReference Include="bitmotte.com.ULTRAKILL.Assemblies" Version="17.1.1" />
+    <PackageReference Include="bitmotte.com.Unity.TextMeshPro" Version="2022.3.29" />
     
     <PackageReference Include="bitmotte.EternalsTeam.PluginConfigurator" Version="1.10.2" />
 

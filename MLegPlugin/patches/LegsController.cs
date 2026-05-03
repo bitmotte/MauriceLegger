@@ -3,189 +3,162 @@ using UnityEngine;
 namespace MauriceLegger;
 public class LegsController : MonoBehaviour
 {
-    public Transform movingBody;
-    public Transform turningBody;
-    Transform armature;
-    public Vector3 armatureOffset;
-    Vector3 angleOffset;
     public MaliciousFace malFace;
 
+    public Animator stateController;
+
+    public bool variant;
+
     //leg animation things
+    Transform turningBody;
+
     public float lerpSpeed = 0.2f;
-    public float stepTime = .5f;
-
-    public Rigidbody malFaceBody;
-
-    public Transform leftTarget;
-    Vector3 leftTargetTarget;
-
-    public Transform rightTarget;
-    Vector3 rightTargetTarget;
-
-
+    public float stepDistance = 0.9f;
     public Transform leftRayPoint;
     public Transform rightRayPoint;
 
+    public Transform leftIKTarget;
+    public Transform rightIKTarget;
+
+    public Transform leftIKDestination;
+    public Transform rightIKDestination;
+
     public LayerMask mask;
 
-    bool isPhysical;
-    Transform nonPhysicalLegs;
-    Transform physicalLegs;
+    Vector3 malFacePreviousPos;
 
-    Transform physicalArmature;
-
-    //renderers
-    public bool alreadyChangedModel;
-    SkinnedMeshRenderer HealthyLeft;
-    SkinnedMeshRenderer HealthyRight;
-
-    SkinnedMeshRenderer DamagedLeft;
-    SkinnedMeshRenderer DamagedRight;
-
-    EnemySimplifier[] ensims = [];
+    //physical legs
+    Transform physicalContainer;
+    Transform physical;
 
     //footsteps
-    Transform footstepDestination;
     Footsteps footstepsController;
-    Vector3 toTargetTarget;
-
-    void Awake()
-    {
-        mask = LayerMask.GetMask(["Environment","EnvironmentBaked","OutdoorsBaked"]);
-        armature = gameObject.transform.GetChild(0).GetChild(1);
-        armatureOffset = new(0, 0, 0);
-        angleOffset = new(0,0,0);
-
-        leftRayPoint = armature.GetChild(0).GetChild(2);
-        rightRayPoint = armature.GetChild(0).GetChild(3);
-
-        leftTarget = transform.GetChild(1).GetChild(0).GetChild(0);
-        rightTarget = transform.GetChild(1).GetChild(1).GetChild(0);
-
-        nonPhysicalLegs = transform.GetChild(0);
-        physicalLegs = transform.GetChild(2);
-        physicalArmature = physicalLegs.GetChild(1);
-
-        HealthyLeft = armature.parent.GetChild(0).GetComponent<SkinnedMeshRenderer>();
-        HealthyRight = armature.parent.GetChild(2).GetComponent<SkinnedMeshRenderer>();
-
-        DamagedLeft = armature.parent.GetChild(3).GetComponent<SkinnedMeshRenderer>();
-        DamagedRight = armature.parent.GetChild(4).GetComponent<SkinnedMeshRenderer>();
-
-        ensims = transform.GetComponentsInChildren<EnemySimplifier>();
-
-        footstepDestination = transform.GetChild(3);
-        footstepsController = footstepDestination.GetComponent<Footsteps>();
-
-        physicalLegs.gameObject.SetActive(false);
-        DamagedLeft.enabled = false;
-        DamagedRight.enabled = false;
-    }
 
     void Start()
     {
+        stateController = GetComponent<Animator>();
+
+        turningBody = transform.parent.GetChild(0);
+
+        mask = LayerMask.GetMask(["Environment","EnvironmentBaked","OutdoorsBaked"]);
+
+        leftRayPoint = transform.GetChild(2);
+        rightRayPoint = transform.GetChild(3);
+
+        //the points the leg points at
+        Transform IKRig = transform.GetChild(1);
+        leftIKTarget = IKRig.GetChild(0);
+        rightIKTarget = IKRig.GetChild(1);
+
+        //the points the leg lerps to
+        Transform IKDestinations = transform.GetChild(0);
+        leftIKDestination = IKDestinations.GetChild(0);
+        rightIKDestination = IKDestinations.GetChild(1);
+
+        //physical legs
+        physicalContainer = transform.GetChild(4);
+        physical = physicalContainer.GetChild(1);
+
+        physicalContainer.gameObject.SetActive(false);
+
+        footstepsController = transform.GetComponentInChildren<Footsteps>();
+
+        IKDestinations.parent = transform.parent.parent;
+
         StepLeft();
+
+        if(variant)
+        {
+            stateController.SetBoolString("Variant",true);
+        }
     }
 
-    public void FixedUpdate()
+    void FixedUpdate()
     {
-        armature.position = movingBody.position + armatureOffset;
-        armature.eulerAngles = new Vector3(armature.eulerAngles.x,turningBody.eulerAngles.y,armature.eulerAngles.z) + angleOffset;
-        leftTarget.position = Vector3.Lerp(leftTarget.position,leftTargetTarget,lerpSpeed);
-        rightTarget.position = Vector3.Lerp(rightTarget.position,rightTargetTarget,lerpSpeed);
+        transform.eulerAngles = new(0,turningBody.eulerAngles.y,0);
+
+        leftIKTarget.position = Vector3.Lerp(leftIKTarget.position, leftIKDestination.position,lerpSpeed);
+        rightIKTarget.position = Vector3.Lerp(rightIKTarget.position, rightIKDestination.position,lerpSpeed);
     }
 
     void StepLeft()
     {
+        //mmm jank : - )
         if(malFace.spiderFalling) {return;}
-        Invoke("StepRight",stepTime);
-        if(!isPhysical)
+        Invoke("StepRight",stepDistance / 2);
+        
+        if (Physics.Raycast(leftRayPoint.position + (-leftRayPoint.forward), leftRayPoint.up, out RaycastHit hit, mask))
         {
-            if (Physics.Raycast(leftRayPoint.position, leftRayPoint.up, out RaycastHit hit, mask))
+            leftIKDestination.position = hit.point;
+
+            if(Vector3.Distance(malFace.transform.position,malFacePreviousPos) >= stepDistance)
             {
-                toTargetTarget = hit.point + Vector3.up;
-                if(Vector3.Distance(toTargetTarget,leftTarget.position) > 0.2f)
-                {
-                    Invoke("MakeFootstep",stepTime - 0.45f);
-                }
-                leftTargetTarget = toTargetTarget;
+                Invoke("MakeFootstepLeft",.1f);
+                leftIKDestination.position = hit.point + (-leftRayPoint.forward * stepDistance);
             }
         }
+
+        malFacePreviousPos = malFace.transform.position;
     }
 
     void StepRight()
     {
+        //mmm jank : - )
         if(malFace.spiderFalling) {return;}
-        Invoke("StepLeft",stepTime);
-        if(!isPhysical) {
-            if(Physics.Raycast(rightRayPoint.position, rightRayPoint.up, out RaycastHit hit, mask))
+        Invoke("StepLeft",stepDistance / 2);
+        
+        if (Physics.Raycast(rightRayPoint.position + (-rightRayPoint.forward), rightRayPoint.up, out RaycastHit hit, mask))
+        {
+            rightIKDestination.position = hit.point;
+
+            if(Vector3.Distance(malFace.transform.position,malFacePreviousPos) >= stepDistance)
             {
-                toTargetTarget = hit.point + Vector3.up;
-                if(Vector3.Distance(toTargetTarget,rightTarget.position) > 0.2f)
-                {
-                    Invoke("MakeFootstep",stepTime - 0.45f);
-                }
-                rightTargetTarget = toTargetTarget;
+                Invoke("MakeFootstepRight",.1f);
+                rightIKDestination.position = hit.point + (-rightRayPoint.forward * stepDistance);
             }
         }
+
+        malFacePreviousPos = malFace.transform.position;
     }
 
-    void MakeFootstep()
+    void MakeFootstepLeft()
     {
-        footstepDestination.position = toTargetTarget;
-        footstepDestination.eulerAngles = new(0,turningBody.eulerAngles.y,0);
+        footstepsController.transform.position = leftIKDestination.position;
+        footstepsController.transform.eulerAngles = new(0,turningBody.eulerAngles.y,0);
         footstepsController.Footstep();
     }
 
-    public void SwitchToPhysicalLegs()
+    void MakeFootstepRight()
     {
-        if(!isPhysical)
-        {
-            isPhysical = true;
-            physicalLegs.gameObject.SetActive(true);
-            armatureOffset = new(0,0,0);
-            physicalArmature.position = movingBody.position + armatureOffset;
-            physicalArmature.rotation = armature.rotation;
-
-            nonPhysicalLegs.gameObject.SetActive(false);
-        }
+        footstepsController.transform.position = rightIKDestination.position;
+        footstepsController.transform.eulerAngles = new(0,turningBody.eulerAngles.y,0);
+        footstepsController.Footstep();
     }
 
     public void SwitchToDamagedVisuals()
     {
-        alreadyChangedModel = true;
-
-        HealthyLeft.enabled = false;
-        HealthyRight.enabled = false;
-
-        DamagedLeft.enabled = true;
-        DamagedRight.enabled = true;
+        stateController.SetBoolString("Damaged",true);
     }
     
     public void SwitchToHealthyVisuals()
     {
-        alreadyChangedModel = false;
-
-        HealthyLeft.enabled = true;
-        HealthyRight.enabled = true;
-
-        DamagedLeft.enabled = false;
-        DamagedRight.enabled = false;
+        stateController.SetBoolString("Damaged",false);
     }
 
     public void Enrage()
     {
-        foreach (EnemySimplifier ensim in ensims)
-        {
-            ensim.enraged = true;
-        }
+        stateController.SetBoolString("Enraged",true);
     }
     
     public void UnEnrage()
     {
-        foreach (EnemySimplifier ensim in ensims)
-        {
-            ensim.enraged = false;
-        }
+        stateController.SetBoolString("Enraged",false);
+    }
+
+    public void SwitchToPhysical()
+    {
+        physicalContainer.gameObject.SetActive(true);
+        physical.parent = transform.parent;
+        Destroy(gameObject);
     }
 }

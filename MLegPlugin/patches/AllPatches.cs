@@ -8,7 +8,7 @@ namespace MauriceLegger;
 [HarmonyPatch(typeof(MaliciousFace), "Start")]
 public class LegPatch : MonoBehaviour
 {
-    static void Prefix(MaliciousFace __instance)
+    static void Postfix(MaliciousFace __instance)
     {
         foreach (LineRenderer spiderLeg in __instance.transform.parent.GetComponentsInChildren<LineRenderer>())
         {
@@ -28,8 +28,11 @@ public class WoundPatch : MonoBehaviour
         {
             if (__instance.spider.health >= __instance.maxHealth / 2f && __instance.spider.health - data.damage < __instance.maxHealth / 2f)
             {
-                LegsController controller = __instance.transform.parent.GetComponentInChildren<LegsController>();
-                controller.SwitchToDamagedVisuals();
+                LegsController[] controllers = __instance.transform.parent.GetComponentsInChildren<LegsController>();
+                foreach (LegsController controller in controllers)
+                {
+                    controller.SwitchToDamagedVisuals();
+                }
             }
         }
     }
@@ -40,9 +43,12 @@ public class DeathPatch : MonoBehaviour
 {
     static void Postfix(MaliciousFace __instance)
     {
-        LegsController controller = __instance.transform.parent.GetComponentInChildren<LegsController>();
-        controller.UnEnrage();
-        controller.SwitchToHealthyVisuals();
+        LegsController[] controllers = __instance.transform.parent.GetComponentsInChildren<LegsController>();
+        foreach (LegsController controller in controllers)
+        {
+            controller.UnEnrage();
+            controller.SwitchToHealthyVisuals();
+        }
     }
 }
 
@@ -51,10 +57,13 @@ public class FloorPatch : MonoBehaviour
 {
     static void Postfix(MaliciousFace __instance,Collision other)
     {
-        LegsController controller = __instance.transform.parent.GetComponentInChildren<LegsController>();
+        LegsController[] controllers = __instance.transform.parent.GetComponentsInChildren<LegsController>();
         if(other.gameObject.CompareTag("Floor"))
         {
-            controller.SwitchToPhysicalLegs();
+            foreach (LegsController controller in controllers)
+            {
+                controller.SwitchToPhysical();
+            }
         }
     }
 }
@@ -64,8 +73,11 @@ public class EnragePatch : MonoBehaviour
 {
     static void Postfix(MaliciousFace __instance)
     {
-        LegsController controller = __instance.transform.parent.GetComponentInChildren<LegsController>();
-        controller.Enrage();
+        LegsController[] controllers = __instance.transform.parent.GetComponentsInChildren<LegsController>();
+        foreach (LegsController controller in controllers)
+        {
+            controller.Enrage();
+        }
     }
 }
 
@@ -74,7 +86,10 @@ public class UnEnragePatch : MonoBehaviour
 {
     static void Postfix(MaliciousFace __instance)
     {
-        LegsController controller = __instance.transform.parent.GetComponentInChildren<LegsController>();
-        controller.UnEnrage();
+        LegsController[] controllers = __instance.transform.parent.GetComponentsInChildren<LegsController>();
+        foreach (LegsController controller in controllers)
+        {
+            controller.UnEnrage();
+        }
     }
 }

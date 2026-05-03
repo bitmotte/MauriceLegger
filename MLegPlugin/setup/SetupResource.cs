@@ -17,7 +17,14 @@ public static class SetupResource
         {
             foreach (Material mat in dynamic.materials)
             {
-                mat.shader = Master;
+                if(mat.shader.name == "ULTRAKILL/Master")
+                {
+                    mat.shader = Master;
+                }
+                if(mat.shader.name == "Hidden/InternalErrorShader")
+                {
+                    mat.shader = Addressables.LoadAssetAsync<Material>("Assets/Materials/Dev/FadeToWhite.mat").WaitForCompletion().shader;
+                }
             }
         }
 
@@ -44,7 +51,14 @@ public static class SetupResource
         {
             simplifier.simplifiedMaterial.shader = Master;
             simplifier.enragedSimplifiedMaterial.shader = Master;
-            simplifier.enragedMaterial.shader = Master;
+            if(simplifier.enragedMaterial.shader.name == "Hidden/InternalErrorShader" || simplifier.enragedMaterial.shader.name == "Sprites/Default")
+            {
+                simplifier.enragedMaterial.shader = Addressables.LoadAssetAsync<Material>("Assets/Materials/Dev/FadeToWhite.mat").WaitForCompletion().shader;
+            }
+            else
+            {
+                simplifier.enragedMaterial.shader = Master;
+            }
             simplifier.enemyColorType = EnemyType.Cerberus;
         }
 
