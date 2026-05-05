@@ -136,6 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1424908471418962154}
   - component: {fileID: 1993119010551925890}
+  - component: {fileID: 5392861635789388196}
   m_Layer: 0
   m_Name: LegsDamaged
   m_TagString: Untagged
@@ -218,6 +219,37 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.050380733, z: 0.003736163}
     m_Extent: {x: 0.016902495, y: 0.038794708, z: 0.016899757}
   m_DirtyAABB: 0
+--- !u!114 &5392861635789388196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491664676117201411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c5318540a88ad9173beaff1e22bd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neverOutlineAndRemoveSimplifier: 0
+  enemyScriptHandlesEnrage: 0
+  enemyRootTransform: {fileID: 0}
+  radiantSubmeshesToIgnore: 
+  enragedMaterial: {fileID: 2100000, guid: 0440ce97d0ef7768dad5cf43431f2203, type: 2}
+  originalMaterial: {fileID: 0}
+  originalMaterial2: {fileID: 0}
+  originalMaterial3: {fileID: 0}
+  simplifiedMaterial: {fileID: 2100000, guid: 032ddbad0a7f8764b8005c4a7924e74e, type: 2}
+  simplifiedMaterial2: {fileID: 0}
+  simplifiedMaterial3: {fileID: 0}
+  enragedSimplifiedMaterial: {fileID: 2100000, guid: f8c930d53fd3c204f83f28936ed74260, type: 2}
+  enraged: 0
+  enemyColorType: 0
+  ignoreCustomColor: 0
+  eid: {fileID: 0}
+  isHat: 0
+  radianceEffect: {fileID: 0}
+  matList: []
 --- !u!1 &3859635436158501711
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2660994339349183371}
   - component: {fileID: 7351256236751428676}
+  - component: {fileID: 4097325300804993322}
   m_Layer: 0
   m_Name: Legs
   m_TagString: Untagged
@@ -310,6 +343,37 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.050380733, z: 0.003736163}
     m_Extent: {x: 0.016902495, y: 0.038794708, z: 0.016899757}
   m_DirtyAABB: 0
+--- !u!114 &4097325300804993322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3859635436158501711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c5318540a88ad9173beaff1e22bd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neverOutlineAndRemoveSimplifier: 0
+  enemyScriptHandlesEnrage: 0
+  enemyRootTransform: {fileID: 0}
+  radiantSubmeshesToIgnore: 
+  enragedMaterial: {fileID: 2100000, guid: 0440ce97d0ef7768dad5cf43431f2203, type: 2}
+  originalMaterial: {fileID: 0}
+  originalMaterial2: {fileID: 0}
+  originalMaterial3: {fileID: 0}
+  simplifiedMaterial: {fileID: 2100000, guid: 032ddbad0a7f8764b8005c4a7924e74e, type: 2}
+  simplifiedMaterial2: {fileID: 0}
+  simplifiedMaterial3: {fileID: 0}
+  enragedSimplifiedMaterial: {fileID: 2100000, guid: f8c930d53fd3c204f83f28936ed74260, type: 2}
+  enraged: 0
+  enemyColorType: 0
+  ignoreCustomColor: 0
+  eid: {fileID: 0}
+  isHat: 0
+  radianceEffect: {fileID: 0}
+  matList: []
 --- !u!1 &6550890282621673878
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +563,22 @@ PrefabInstance:
       propertyPath: m_Data.m_Root
       value: 
       objectReference: {fileID: 1708322538147335258}
+    - target: {fileID: 4829483944436891018, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1854643063712853017, guid: 79f4be0eb3d87d8c8a69a721261ab0f4, type: 3}
+    - target: {fileID: 4829483944436891018, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8091a5838aae26742abfb6f7b7aac44f, type: 2}
+    - target: {fileID: 5014990870139867089, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1854643063712853017, guid: 79f4be0eb3d87d8c8a69a721261ab0f4, type: 3}
+    - target: {fileID: 5014990870139867089, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8091a5838aae26742abfb6f7b7aac44f, type: 2}
     - target: {fileID: 5370712358859833671, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
       propertyPath: enragedMaterial
       value: 

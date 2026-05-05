@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Legs
       objectReference: {fileID: 0}
+    - target: {fileID: 4829483944436891018, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7929490898071767118, guid: 18c490c547583b9f6bc27da30a2dec3c, type: 3}
+    - target: {fileID: 5014990870139867089, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7929490898071767118, guid: 18c490c547583b9f6bc27da30a2dec3c, type: 3}
     - target: {fileID: 6326243971127873032, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
       propertyPath: m_Mesh
       value: 

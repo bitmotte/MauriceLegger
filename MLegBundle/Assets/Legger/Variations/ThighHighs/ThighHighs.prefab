@@ -36,6 +36,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Legs
       objectReference: {fileID: 0}
+    - target: {fileID: 4829483944436891018, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f84c8c9fbdf09dcafa7431643d68fd33, type: 2}
+    - target: {fileID: 5014990870139867089, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f84c8c9fbdf09dcafa7431643d68fd33, type: 2}
+    - target: {fileID: 5180202891193885483, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: enragedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bdba3ba08a0d74f8b1db6d645ac4cc2, type: 2}
     - target: {fileID: 5370712358859833671, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
       propertyPath: enragedMaterial
       value: 
@@ -112,6 +124,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f84c8c9fbdf09dcafa7431643d68fd33, type: 2}
+    - target: {fileID: 8226479246610187130, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: enragedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bdba3ba08a0d74f8b1db6d645ac4cc2, type: 2}
     - target: {fileID: 8731726654876688060, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

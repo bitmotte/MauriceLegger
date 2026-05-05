@@ -32,6 +32,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Legs
       objectReference: {fileID: 0}
+    - target: {fileID: 4829483944436891018, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6713998996598892683, guid: 038e52a7f64fa1803935964b26176623, type: 3}
+    - target: {fileID: 4829483944436891018, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90afa9812fca2534997be9362048b4f9, type: 2}
+    - target: {fileID: 5014990870139867089, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6713998996598892683, guid: 038e52a7f64fa1803935964b26176623, type: 3}
+    - target: {fileID: 5014990870139867089, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90afa9812fca2534997be9362048b4f9, type: 2}
+    - target: {fileID: 5180202891193885483, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: enragedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bc70ec1a2301b384e9b6e34fb432e5dc, type: 2}
     - target: {fileID: 5370712358859833671, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
       propertyPath: enragedMaterial
       value: 
@@ -124,6 +144,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 90afa9812fca2534997be9362048b4f9, type: 2}
+    - target: {fileID: 8226479246610187130, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: enragedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bc70ec1a2301b384e9b6e34fb432e5dc, type: 2}
     - target: {fileID: 8731726654876688060, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
       propertyPath: m_Mesh
       value: 

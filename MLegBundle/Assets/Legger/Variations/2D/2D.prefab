@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: enragedMaterial
       value: 
       objectReference: {fileID: 2100000, guid: e6befb16e0f5482bf977c7e7b832cab0, type: 2}
+    - target: {fileID: 3164714976475831774, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: targets.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3862107131312410211, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
       propertyPath: m_Name
       value: 2D
@@ -80,6 +84,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Legs
       objectReference: {fileID: 0}
+    - target: {fileID: 4623131662754019293, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829483944436891018, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5297555852190880320, guid: 35f05ccd7c29bf65380714ab5556f4a1, type: 3}
+    - target: {fileID: 4829483944436891018, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9039d07347194b512bfb9f3bfb576aa4, type: 2}
+    - target: {fileID: 5014990870139867089, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5297555852190880320, guid: 35f05ccd7c29bf65380714ab5556f4a1, type: 3}
+    - target: {fileID: 5014990870139867089, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9039d07347194b512bfb9f3bfb576aa4, type: 2}
+    - target: {fileID: 5180202891193885483, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
+      propertyPath: enragedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e6befb16e0f5482bf977c7e7b832cab0, type: 2}
     - target: {fileID: 5370712358859833671, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
       propertyPath: enragedMaterial
       value: 
@@ -261,7 +289,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: e6befb16e0f5482bf977c7e7b832cab0, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7079878158636949811, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21dbdce60ab6746a2adb3b6d141a4e4e, type: 3}

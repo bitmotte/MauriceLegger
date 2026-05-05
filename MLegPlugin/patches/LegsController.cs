@@ -1,6 +1,10 @@
+//listen theres a  lot of jank in this file im sorry ill fix it later but for now im done with this ! ! aafaggsfh
+
+
 using UnityEngine;
 
 namespace MauriceLegger;
+
 public class LegsController : MonoBehaviour
 {
     public MaliciousFace malFace;
@@ -34,8 +38,23 @@ public class LegsController : MonoBehaviour
     //footsteps
     Footsteps footstepsController;
 
+    EnemySimplifier[] ensims = [];
+
+    //this script has gotten so bloated
+
+    void Awake()
+    {
+        ensims = GetComponentsInChildren<EnemySimplifier>();
+    }
+
     void Start()
     {
+        foreach (EnemySimplifier ensim in ensims)
+        {
+            ensim.eid = malFace.eid;
+            ensim.enemyColorType = EnemyType.Cerberus;
+        }
+
         stateController = GetComponent<Animator>();
 
         turningBody = transform.parent.GetChild(0);
@@ -62,6 +81,7 @@ public class LegsController : MonoBehaviour
         physicalContainer.gameObject.SetActive(false);
 
         footstepsController = transform.GetComponentInChildren<Footsteps>();
+        footstepsController.footstep.AddComponent<FootstepConfigCheck>();
 
         IKDestinations.parent = transform.parent.parent;
 
@@ -71,6 +91,8 @@ public class LegsController : MonoBehaviour
         {
             stateController.SetBoolString("Variant",true);
         }
+
+        CheckConfig();
     }
 
     void FixedUpdate()
@@ -79,6 +101,13 @@ public class LegsController : MonoBehaviour
 
         leftIKTarget.position = Vector3.Lerp(leftIKTarget.position, leftIKDestination.position,lerpSpeed);
         rightIKTarget.position = Vector3.Lerp(rightIKTarget.position, rightIKDestination.position,lerpSpeed);
+    }
+
+    void CheckConfig()
+    {
+        Invoke("CheckConfig",3f);
+        lerpSpeed = GlobalConfig.footLerpSpeed;
+        stepDistance = GlobalConfig.timeBetweenSteps;
     }
 
     void StepLeft()
@@ -123,6 +152,7 @@ public class LegsController : MonoBehaviour
 
     void MakeFootstepLeft()
     {
+        if(!GlobalConfig.footsteps) {return;}
         footstepsController.transform.position = leftIKDestination.position;
         footstepsController.transform.eulerAngles = new(0,turningBody.eulerAngles.y,0);
         footstepsController.Footstep();
@@ -130,6 +160,7 @@ public class LegsController : MonoBehaviour
 
     void MakeFootstepRight()
     {
+        if(!GlobalConfig.footsteps) {return;}
         footstepsController.transform.position = rightIKDestination.position;
         footstepsController.transform.eulerAngles = new(0,turningBody.eulerAngles.y,0);
         footstepsController.Footstep();
@@ -145,14 +176,61 @@ public class LegsController : MonoBehaviour
         stateController.SetBoolString("Damaged",false);
     }
 
+    //every time i open this mod some new bullshit problem appears LOOK WHAT THEY MADE ME DO
+
     public void Enrage()
     {
+        if(malFace.eid.puppet) {return;}
+        Invoke("EnrageWhat",0.01f);
+    }
+
+    public void EnrageWhat()
+    {
         stateController.SetBoolString("Enraged",true);
+        foreach (EnemySimplifier ensim in ensims)
+        {
+            ensim.ChangeMaterialNew(EnemySimplifier.MaterialState.enraged,ensim.enragedMaterial);
+            ensim.enraged = true;
+        }
     }
     
     public void UnEnrage()
     {
+        if(malFace.eid.puppet) {return;}
+        Invoke("UnEnrageWhat",0.01f);
+    }
+
+    public void UnEnrageWhat()
+    {
         stateController.SetBoolString("Enraged",false);
+        foreach (EnemySimplifier ensim in ensims)
+        {
+            ensim.ChangeMaterialNew(EnemySimplifier.MaterialState.normal,ensim.originalMaterial);
+            ensim.enraged = false;
+        }
+    }
+
+    public void Death()
+    {
+        Invoke("DeathWhat",0.01f);
+    }
+
+    public void DeathWhat()
+    {
+        foreach (EnemySimplifier ensim in ensims)
+        {
+            MaterialPropertyBlock materialPropertyBlock = new MaterialPropertyBlock();
+            materialPropertyBlock.SetFloat("_Outline", 0f);
+            materialPropertyBlock.SetFloat("_ForceOutline", 0f);
+            ensim.meshrenderer.SetPropertyBlock(materialPropertyBlock);
+            ensim.active = false;
+            Object.Destroy(ensim);
+        }
+        DoubleRender[] doubleRenderers = GetComponentsInChildren<DoubleRender>();
+        foreach (DoubleRender dr in doubleRenderers)
+        {
+            Destroy(dr);
+        }
     }
 
     public void SwitchToPhysical()

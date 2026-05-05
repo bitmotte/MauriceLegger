@@ -97,6 +97,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fcbc93205b6a42589474633f999ab4c
+    m_Address: Assets/Legger/Bestiary/Obj.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0503cc09293b3298dac6262e1050b763
+    m_Address: Assets/Legger/Bestiary/ObjSandbox.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d35654f03a57746589c938f14068a523, type: 2}
   m_SchemaSet:

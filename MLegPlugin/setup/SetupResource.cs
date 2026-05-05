@@ -49,19 +49,22 @@ public static class SetupResource
 
         foreach (EnemySimplifier simplifier in gameObject.GetComponentsInChildren<EnemySimplifier>())
         {
-            simplifier.simplifiedMaterial.shader = Master;
-            simplifier.enragedSimplifiedMaterial.shader = Master;
-            if(simplifier.enragedMaterial.shader.name == "Hidden/InternalErrorShader" || simplifier.enragedMaterial.shader.name == "Sprites/Default")
-            {
-                simplifier.enragedMaterial.shader = Addressables.LoadAssetAsync<Material>("Assets/Materials/Dev/FadeToWhite.mat").WaitForCompletion().shader;
+            if(simplifier.simplifiedMaterial) {simplifier.simplifiedMaterial.shader = Master;}
+            if(simplifier.simplifiedMaterial2) {simplifier.simplifiedMaterial2.shader = Master;}
+            
+            if(simplifier.enragedMaterial) {
+                if(simplifier.enragedMaterial.shader.name == "ULTRAKILL/Master")
+                {
+                    simplifier.enragedMaterial.shader = Master;
+                }
+                if(simplifier.enragedMaterial.shader.name == "Hidden/InternalErrorShader")
+                {
+                    simplifier.enragedMaterial.shader = Addressables.LoadAssetAsync<Material>("Assets/Materials/Dev/FadeToWhite.mat").WaitForCompletion().shader;
+                }
             }
-            else
-            {
-                simplifier.enragedMaterial.shader = Master;
-            }
-            simplifier.enemyColorType = EnemyType.Cerberus;
+           
+            if(simplifier.enragedSimplifiedMaterial) {simplifier.enragedSimplifiedMaterial.shader = Master;}
         }
-
         foreach (Footsteps footstepsController in gameObject.GetComponentsInChildren<Footsteps>())
         {
             if(footstepsController.footstep == null) {continue;};

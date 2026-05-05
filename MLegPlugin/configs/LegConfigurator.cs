@@ -6,8 +6,18 @@ namespace MauriceLegger;
 
 public static class LegConfigurator
 {
-    //leg settings
-    
+    //legs
+    public static BoolField disableSpiderLegs;
+    public static BoolField becomeRagdollOnLanding;
+    public static BoolField footsteps;
+
+    //tweaks
+    public static FloatSliderField timeBetweenSteps;
+    public static FloatSliderField footLerpSpeed;
+    public static BoolField footstepsSound;
+    public static BoolField footstepsParticle;
+    public static BoolField damagedVisual;
+    public static BoolField enragedVisual;
 
     //variations
     public static BoolField variantJingle;
@@ -38,7 +48,27 @@ public static class LegConfigurator
         PluginConfigurator config = PluginConfigurator.Create("Maurice Legger", MyPluginInfo.PLUGIN_GUID);
 
         ConfigSpace gap1 = new(config.rootPanel,15f);
-        
+
+        ConfigHeader legsHeader = new(config.rootPanel,"Legs",24,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader configsNotice = new(config.rootPanel,"Notice : Some configs update live",14,TMPro.TextAlignmentOptions.Left);
+        disableSpiderLegs = new(config.rootPanel,"Disable Spider Legs","disable_spider_legs",true);
+        ConfigSpace smallGap1 = new(config.rootPanel,7f);
+        becomeRagdollOnLanding = new(config.rootPanel,"Ragdoll on landing","ragdoll_on_landing",true);
+        footsteps = new(config.rootPanel,"Footsteps","footsteps",true);
+
+        ConfigSpace gap2 = new(config.rootPanel,15f);
+       
+        ConfigHeader tweaksHeader = new(config.rootPanel,"Tweaks",24,TMPro.TextAlignmentOptions.Left);
+        timeBetweenSteps = new(config.rootPanel,"Time Between Steps (s)","time_between_steps",new(0.01f,2),0.9f);
+        footLerpSpeed = new(config.rootPanel,"Foot Interpolation Speed","foot_lerp_speed",new(0.01f,1f),0.1f);
+        ConfigSpace smallGap2 = new(config.rootPanel,7f);
+        footstepsSound = new(config.rootPanel,"Footstep Sound","footstep_sound",true);
+        footstepsParticle = new(config.rootPanel,"Footstep Particle","footstep_particle",true);
+        ConfigSpace smallGap3 = new(config.rootPanel,7f);
+        damagedVisual = new(config.rootPanel,"Damaged Visual","damaged_visual",true);
+        enragedVisual = new(config.rootPanel,"Enraged Visual","enraged_visual",true);
+
+        ConfigSpace gap3 = new(config.rootPanel,15f);
 
         ConfigHeader variantHeader = new(config.rootPanel,"Secret Variations",24,TMPro.TextAlignmentOptions.Left);
         ConfigHeader variantCount = new(config.rootPanel,"Notice : There are 14 variations .",14,TMPro.TextAlignmentOptions.Left);
@@ -100,6 +130,19 @@ public static class LegConfigurator
 
     static void UpdateGlobalConfig()
     {
+        //legs
+        GlobalConfig.disableSpiderLegs = disableSpiderLegs.value;
+        GlobalConfig.becomeRagdollOnLanding = becomeRagdollOnLanding.value;
+        GlobalConfig.footsteps = footsteps.value;
+
+        //tweaks
+        GlobalConfig.timeBetweenSteps = timeBetweenSteps.value;
+        GlobalConfig.footLerpSpeed = footLerpSpeed.value;
+        GlobalConfig.footstepsSound = footstepsSound.value;
+        GlobalConfig.footstepsParticle = footstepsParticle.value;
+        GlobalConfig.damagedVisual = damagedVisual.value;
+        GlobalConfig.enragedVisual = enragedVisual.value;
+
         //variants
         GlobalConfig.variantJingle = variantJingle.value;
         GlobalConfig.variantChance = variantChance.value;

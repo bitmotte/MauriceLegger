@@ -7,26 +7,25 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cerberus
+  m_Name: Cerberus Unlit
   m_Shader: {fileID: 4800000, guid: 77f0c393c23cbe64a9db28ab90a73a5c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
-  - ENEMY
-  - VERTEX_LIGHTING
   - _FOG_ON
   - _GLITCHMODE_NONE
   - _RAINCEILINGTOGGLE_ON
   - _USEALBEDOASEMISSIVE_ON
   - _VERTEXCOLORS_ON
-  - _VERTEXLIGHTING_ON
   - _ZWRITE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    PASSFLAGS: OnlyDirectional
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -234,7 +233,7 @@ Material:
     - _StencilSettings: 0
     - _StencilWriteMask: 255
     - _SurfaceSettings: 1
-    - _SurfaceType: 0
+    - _SurfaceType: 7
     - _TextureWarpingOverride: 0.1
     - _TransmissionAmount: 0
     - _UVSec: 0
@@ -242,7 +241,7 @@ Material:
     - _UseSoftFade: 0
     - _VColStrength: 0
     - _VertexColors: 1
-    - _VertexLighting: 1
+    - _VertexLighting: 0
     - _VertexMode: 0
     - _VertexNoiseAmplitude: 1
     - _VertexNoiseScale: 1
