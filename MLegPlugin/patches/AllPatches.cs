@@ -58,12 +58,11 @@ public class DeathPatch : MonoBehaviour
 }
 
 [HarmonyPatch(typeof(MaliciousFace), "HandleCollision")]
+[HarmonyPriority(10)]
 public class FloorPatch : MonoBehaviour
 {
     static void Postfix(MaliciousFace __instance,Collision other)
-    {
-        if(!GlobalConfig.becomeRagdollOnLanding) {return;}
-        
+    {   
         LegsController[] controllers = __instance.transform.parent.GetComponentsInChildren<LegsController>();
         if(other.gameObject.CompareTag("Floor"))
         {
@@ -71,8 +70,7 @@ public class FloorPatch : MonoBehaviour
             {
                 controller.SwitchToPhysical();
             }
-        }   
-        
+        }      
     }
 }
 
@@ -101,65 +99,5 @@ public class UnEnragePatch : MonoBehaviour
         {
             controller.UnEnrage();
         }
-    }
-}
-
-[HarmonyPatch(typeof(EnemyInfoPage), "Start")]
-public class BestiaryIcon : MonoBehaviour
-{
-    static void Prefix(EnemyInfoPage __instance)
-    {
-        if(GlobalConfig.bestiaryIconAlreadyEdited) {return;}
-
-        AssetBundle bundle = BundleTool.Load("legs.bundle");
-
-        SpawnableObject[] newBestiary = [];
-        foreach (SpawnableObject obj in __instance.objects.enemies)
-        {
-            if(obj.objectName == "Malicious Face")
-            {
-                SpawnableObject spawnable = (SpawnableObject)bundle.LoadAsset("Assets/Legger/Bestiary/Obj.asset");
-                SetupResource.FixShader(spawnable.preview);
-
-                obj.gridIcon = spawnable.gridIcon;
-                obj.preview = spawnable.preview;
-            }
-            newBestiary = [.. newBestiary, obj];
-        }
-        __instance.objects.enemies = newBestiary;
-
-        GlobalConfig.bestiaryIconAlreadyEdited = true;
-
-        bundle.Unload(false);
-    }
-}
-
-[HarmonyPatch(typeof(SpawnMenu), "Awake")]
-public class SandboxIcon : MonoBehaviour
-{
-    static void Prefix(SpawnMenu __instance)
-    {
-        if(GlobalConfig.bestiaryIconAlreadyEdited) {return;}
-
-        AssetBundle bundle = BundleTool.Load("legs.bundle");
-
-        SpawnableObject[] newBestiary = [];
-        foreach (SpawnableObject obj in __instance.objects.enemies)
-        {
-            if(obj.objectName == "Malicious Face")
-            {
-                SpawnableObject spawnable = (SpawnableObject)bundle.LoadAsset("Assets/Legger/Bestiary/Obj.asset");
-                SetupResource.FixShader(spawnable.preview);
-
-                obj.gridIcon = spawnable.gridIcon;
-                obj.preview = spawnable.preview;
-            }
-            newBestiary = [.. newBestiary, obj];
-        }
-        __instance.objects.enemies = newBestiary;
-
-        GlobalConfig.bestiaryIconAlreadyEdited = true;
-
-        bundle.Unload(false);
     }
 }

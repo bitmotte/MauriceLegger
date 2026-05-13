@@ -1,6 +1,8 @@
 using PluginConfig.API;
 using PluginConfig.API.Decorators;
 using PluginConfig.API.Fields;
+using PluginConfig.API.Functionals;
+using UnityEngine;
 
 namespace MauriceLegger;
 
@@ -8,7 +10,6 @@ public static class LegConfigurator
 {
     //legs
     public static BoolField disableSpiderLegs;
-    public static BoolField becomeRagdollOnLanding;
     public static BoolField footsteps;
 
     //tweaks
@@ -42,6 +43,8 @@ public static class LegConfigurator
     public static FloatSliderField thighHighsChance;
     public static FloatSliderField handLegsChance;
 
+    public static ButtonField joinDC;
+
 
     public static PluginConfigurator CreateConfigurator()
     {
@@ -53,7 +56,6 @@ public static class LegConfigurator
         ConfigHeader configsNotice = new(config.rootPanel,"Notice : Some configs update live",14,TMPro.TextAlignmentOptions.Left);
         disableSpiderLegs = new(config.rootPanel,"Disable Spider Legs","disable_spider_legs",true);
         ConfigSpace smallGap1 = new(config.rootPanel,7f);
-        becomeRagdollOnLanding = new(config.rootPanel,"Ragdoll on landing","ragdoll_on_landing",true);
         footsteps = new(config.rootPanel,"Footsteps","footsteps",true);
 
         ConfigSpace gap2 = new(config.rootPanel,15f);
@@ -85,45 +87,53 @@ public static class LegConfigurator
         ConfigSpace gapC2 = new(variants,15f);
 
         plushieChance = new(variants,"Plushie","plushie",new(0,5),1);
-        ConfigHeader variantCredit1 = new(variants,"Credit to _ for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit1 = new(variants,"Credit to Bitmotte ( mod developer ) for the idea",14,TMPro.TextAlignmentOptions.Left);
         tutuChance = new(variants,"Tutu","tutu",new(0,5),1);
-        ConfigHeader variantCredit2 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit2 = new(variants,"Credit to u/WingDairu on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         stiltsChance = new(variants,"Stilts","stilts",new(0,5),1);
-        ConfigHeader variantCredit3 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit3 = new(variants,"Credit to u/aqswdefrgthyjukilopm on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         holdingArmsChance = new(variants,"Holding Arms","holding_arms",new(0,5),1);
-        ConfigHeader variantCredit4 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit4 = new(variants,"Credit to u/Valkreaper on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         holdingLegsChance = new(variants,"Holding Legs","holding_legs",new(0,5),1);
-        ConfigHeader variantCredit5 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit5 = new(variants,"Credit to u/ObeyTime on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         twoDChance = new(variants,"2D","2d",new(0,5),1);
-        ConfigHeader variantCredit6 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit6 = new(variants,"Credit to u/ThatIdiotlol on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         mettatonChance = new(variants,"Mettaton","mettaton",new(0,5),1);
-        ConfigHeader variantCredit7 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit7 = new(variants,"Credit to u/Inkashes24 on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         sentryChance = new(variants,"Sentry","sentry",new(0,5),1);
-        ConfigHeader variantCredit8 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit8 = new(variants,"Credit to u/ZeroZombie12 on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         swordsmachineChance = new(variants,"Swordsmachine","swordsmachine",new(0,5),1);
-        ConfigHeader variantCredit9 = new(variants,"Credit to _ for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit9 = new(variants,"Credit to u/ZeroZombie12 on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         vTwoChance = new(variants,"V2","v2",new(0,5),1);
-        ConfigHeader variantCredit10 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit10 = new(variants,"Credit to u/Naorazy_Vavilon on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         grossChance = new(variants,"Gross Maurice","gross",new(0,5),1);
-        ConfigHeader variantCredit11 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit11 = new(variants,"Credit to u/Minimum-Wrangler-878 on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         miniMauriceChance = new(variants,"Mini Maurice","mini_maurice",new(0,5),1);
-        ConfigHeader variantCredit12 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit12 = new(variants,"Credit to [ deleted,sorry ! ] on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         thighHighsChance = new(variants,"Thigh Highs","thigh_highs",new(0,5),1);
-        ConfigHeader variantCredit13 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit13 = new(variants,"Credit to u/Notamoogle1 on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
         handLegsChance = new(variants,"Hand Legs","hand_legs",new(0,5),1);
-        ConfigHeader variantCredit14 = new(variants,"Credit to _ on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
+        ConfigHeader variantCredit14 = new(variants,"Credit to u/Anonymouse276207 on Reddit for the idea",14,TMPro.TextAlignmentOptions.Left);
 
         ConfigSpace gap7 = new(config.rootPanel,15f);
 
-        ConfigHeader cheatsNotice = new(config.rootPanel,"Notice : Cheats can be found in the cheats menu .",20,TMPro.TextAlignmentOptions.Left);
-        ConfigSpace gap8 = new(config.rootPanel,15f);
+        ConfigHeader discordInfo = new(config.rootPanel,"Join my discord for sneak peeks,devlogs,and the possibility to test my mods early ! !",20,TMPro.TextAlignmentOptions.Left);
+        joinDC = new(config.rootPanel,"Join my Discord","joinDC");
+        ConfigSpace gap1000 = new(config.rootPanel,15f);
 
         config.postConfigChange += UpdateGlobalConfig;
         UpdateGlobalConfig();
 
+        joinDC.onClick += OpenDiscord;
+
         maxOutAllVariants.onClick += EnableAllVariants;
         disableAllVariants.onClick += DisableAllVariants;
         resetVariants.onClick += ResetAllVariants;
+
+        AssetBundle bundle = BundleTool.Load("legs.bundle");
+        Texture2D tex = (Texture2D)bundle.LoadAsset("Assets/legger.png");
+        config.icon = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
+        bundle.Unload(false);
 
         return config;
     }
@@ -132,7 +142,7 @@ public static class LegConfigurator
     {
         //legs
         GlobalConfig.disableSpiderLegs = disableSpiderLegs.value;
-        GlobalConfig.becomeRagdollOnLanding = becomeRagdollOnLanding.value;
+        MauriceBridge.Store.leggerSpiderLegsAreDisabled = disableSpiderLegs.value;
         GlobalConfig.footsteps = footsteps.value;
 
         //tweaks
@@ -274,5 +284,10 @@ public static class LegConfigurator
         thighHighsChance.TriggerValueChangeEvent();
         handLegsChance.value = handLegsChance.defaultValue;
         handLegsChance.TriggerValueChangeEvent();
-    } 
+    }
+
+    static void OpenDiscord()
+    {
+        System.Diagnostics.Process.Start("http://discord.gg/pVdr9e6hZ8");
+    }
 }

@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 namespace MauriceLegger;
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
-[BepInDependency("com.eternalUnion.pluginConfigurator")]
+[BepInDependency("com.eternalUnion.pluginConfigurator",BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("bitmotte.MauriceBridge",BepInDependency.DependencyFlags.HardDependency)]
 public class Plugin : BaseUnityPlugin
 {
     internal static new ManualLogSource Logger;
@@ -26,5 +27,7 @@ public class Plugin : BaseUnityPlugin
         config = LegConfigurator.CreateConfigurator();
 
         SceneManager.sceneLoaded += SceneUtility.OnSceneLoad;
+
+        MauriceBridge.Store.legger = true;
     }
 }

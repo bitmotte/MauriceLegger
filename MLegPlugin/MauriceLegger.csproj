@@ -26,6 +26,7 @@
     <Reference Include="lib/Unity.Addressables.dll" />
     <Reference Include="lib/UnityEngine.AssetBundleModule.dll" />
     <Reference Include="lib/Unity.ResourceManager.dll" />
+    <Reference Include="lib/bitmotte.MauriceBridge.dll" />
 
     <PackageReference Include="bitmotte.com.ULTRAKILL.Assemblies" Version="17.1.1" />
     <PackageReference Include="bitmotte.com.Unity.TextMeshPro" Version="2022.3.29" />

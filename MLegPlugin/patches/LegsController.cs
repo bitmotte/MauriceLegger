@@ -77,6 +77,10 @@ public class LegsController : MonoBehaviour
         //physical legs
         physicalContainer = transform.GetChild(4);
         physical = physicalContainer.GetChild(1);
+        if(MauriceBridge.Store.baller == true)
+        {
+            physical = physicalContainer.GetChild(0);
+        }
 
         physicalContainer.gameObject.SetActive(false);
 
@@ -105,7 +109,7 @@ public class LegsController : MonoBehaviour
 
     void CheckConfig()
     {
-        Invoke("CheckConfig",3f);
+        Invoke("CheckConfig",1f);
         lerpSpeed = GlobalConfig.footLerpSpeed;
         stepDistance = GlobalConfig.timeBetweenSteps;
     }
@@ -236,7 +240,9 @@ public class LegsController : MonoBehaviour
     public void SwitchToPhysical()
     {
         physicalContainer.gameObject.SetActive(true);
-        physical.parent = transform.parent;
+        physical.parent = MauriceBridge.Store.corpse.transform;
+        physical.position = MauriceBridge.Store.corpse.transform.position;
+        physical.rotation = MauriceBridge.Store.corpse.transform.rotation;
         Destroy(gameObject);
     }
 }

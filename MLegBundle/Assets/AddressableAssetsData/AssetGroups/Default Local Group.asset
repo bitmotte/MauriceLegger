@@ -102,8 +102,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0503cc09293b3298dac6262e1050b763
-    m_Address: Assets/Legger/Bestiary/ObjSandbox.asset
+  - m_GUID: 3b414c459eb8b3e35af0df20c485f9ff
+    m_Address: Assets/Legger/Legs/Physical/Baller.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02f91f2869aa16de2b2982e43082ea7f
+    m_Address: Assets/legger.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

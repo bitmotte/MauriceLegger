@@ -1,3 +1,12 @@
+# 3.0.0
+- Rewrite the mod
+- Switch legs to IK system
+- Footsteps and other polish
+- Overhaul configs
+- Add several new secret variations
+- Removed arms secret variation
+- Update icon
+
 # 2.0.2
 - make varitatio ns rate\agian GOD DAMNIT
 

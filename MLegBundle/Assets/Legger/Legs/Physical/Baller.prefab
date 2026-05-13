@@ -203,7 +203,7 @@ SpringJoint:
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 3.8649534e-10, y: 0.03218361, z: 3.863633e-11}
   serializedVersion: 2
   m_Spring: 10000
   m_Damper: 0.2
@@ -243,14 +243,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092101942903631316}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071064, w: 0.7071072}
   m_LocalPosition: {x: 0.0060000014, y: 0.019000005, z: 0.0018685345}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 476084621488679865}
   m_Father: {fileID: 6770603012462403714}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!136 &5155700078802608480
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -312,7 +312,7 @@ SpringJoint:
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7980002, y: -1.0270009, z: -0.24851511}
+  m_ConnectedAnchor: {x: 0.00036090426, y: 0.005842112, z: -0.000011164579}
   serializedVersion: 2
   m_Spring: 10000
   m_Damper: 0.2
@@ -478,14 +478,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3855780499993793218}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071068}
   m_LocalPosition: {x: -0.006000084, y: 0.01900032, z: 0.001868559}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8333724112626992343}
   m_Father: {fileID: 6770603012462403714}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!136 &2058803130215095173
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -691,7 +691,7 @@ SpringJoint:
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 0.028071325, z: 2.3283064e-10}
   serializedVersion: 2
   m_Spring: 10000
   m_Damper: 0.2
