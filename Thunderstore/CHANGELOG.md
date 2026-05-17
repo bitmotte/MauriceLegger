@@ -1,3 +1,7 @@
+# 3.0.1
+- Will no longer try to create legs if puppeted,as to not cause issues with deathcatchers . . .
+I will find a better solution for this when I clean up the codebase .
+
 # 3.0.0
 - Rewrite the mod
 - Switch legs to IK system

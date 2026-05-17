@@ -97,6 +97,11 @@ public class LegsController : MonoBehaviour
         }
 
         CheckConfig();
+
+        if(malFace.eid.puppet == true || malFace.eid.permaPuppet == true)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void FixedUpdate()
